@@ -1,6 +1,30 @@
-# Homepage (Root path)
+#PHOTOS/MAIN PAGE
 get '/' do
-  erb :index
+  @pictures = Picture.all
+  erb :'index'
+end
+
+get '/photos/new' do
+  @photos = Photo.new
+  erb :'photos.new'
+end
+
+get '/photos/:id' do
+  @photo = Photo.find params[:id]
+  erb :'photos/:id'
+end
+
+post '/photos/new' do
+  photo = current_user.photos.new(
+    user_id: params[:user_id],
+    caption:  params[:caption],
+    url: params[:url],
+  )
+  if photo.save
+    erb :'photos/:id'
+  else
+    erb :'photos/new'
+  end
 end
 
 #USER/SESSIONS
@@ -36,5 +60,4 @@ post '/signin' do
     redirect '/signin'
   end
 end
-
 
