@@ -38,7 +38,7 @@ get '/signup' do
   erb :signup
 end
 
-get '/signout' do
+post '/signout' do
   session.clear
   redirect '/'
 end
@@ -64,5 +64,15 @@ post '/signin' do
   else
     redirect '/signin'
   end
+end
+
+# VOTES
+post '/photos/:id/votes' do
+  photo = Photo.find(params[:id])
+  photo.votes.create(
+    user_id: current_user.id,
+    context: params[:context]
+  ) if current_user
+  redirect '/photos/:id'
 end
 
