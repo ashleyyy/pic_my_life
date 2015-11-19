@@ -77,7 +77,7 @@ get '/photos/:id/votes/funny' do
     user_id: current_user.id,
     context: 'funny'
   ) if current_user
-  redirect "/photos/#{photo.id}"
+  redirect "/"
 end
 
 get '/photos/:id/votes/shameful' do
@@ -86,6 +86,6 @@ get '/photos/:id/votes/shameful' do
     user_id: current_user.id,
     context: 'shameful'
   ) if current_user
-  redirect "/photos/#{photo.id}"
+  redirect "/"
 end
 
