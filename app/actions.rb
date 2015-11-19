@@ -47,15 +47,6 @@ get '/signup' do
   erb :signup
 end
 
-get '/signin' do
-  erb :signin
-end
-
-get '/signout' do
-  session.clear
-  redirect '/photos'
-end
-
 post '/signup' do
   @user = User.new(params[:user])
   if @user.save
@@ -64,6 +55,10 @@ post '/signup' do
   else
     erb :'/signup'
   end
+end
+
+get '/signin' do
+  erb :signin
 end
 
 post '/signin' do
@@ -78,22 +73,17 @@ post '/signin' do
   end
 end
 
+get '/signout' do
+  session.clear
+  redirect '/photos'
+end
+
 # VOTES
-get '/photos/:id/votes/funny' do
-  photo = Photo.find(params[:id])
+post '/photos/:id/votes' do |id|
+  photo = Photo.find(id)
   photo.votes.create(
-    user_id: current_user.id,
-    context: 'funny'
-  ) if current_user
-  redirect "/"
+    user_id: @current_user.id,
+    context: params[:choice]
+    )
+  redirect '/photos'
 end
-
-get '/photos/:id/votes/shameful' do
-  photo = Photo.find(params[:id])
-  photo.votes.create(
-    user_id: current_user.id,
-    context: 'shameful'
-  ) if current_user
-  redirect "/"
-end
-
