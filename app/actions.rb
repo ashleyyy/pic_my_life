@@ -5,6 +5,10 @@ helpers do
    @current_user = User.find(session[:user_id]) if session[:user_id]
   end
 
+  def can_vote?(photo, context)
+    @current_user.votes.find_by(photo_id: photo.id, context: context).nil?
+  end
+
 end
 
 before do
