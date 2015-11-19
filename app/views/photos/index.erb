@@ -1,0 +1,14 @@
+<h1>All Pics</h1>
+
+<h3><a href="/photos/new">♠♠♠ Upload a photo♠♠♠<p></p>
+</a></h3>
+<% unless @photos.nil? %>
+<% @photos.each do |photo| %>
+  <p></p>
+  <h5><div class="photo">
+  <a href="/photos/<%= photo.id %>">
+  <%= photo.url %>
+  <%= photo.caption %>
+  </a>
+<% end %>
+<% end %>

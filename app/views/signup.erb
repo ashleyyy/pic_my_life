@@ -1,0 +1,22 @@
+<h1>Sign Up Time</h1>
+
+<% if @user.errors.any? %>
+  <div>
+    <strong>Some issues with your username and/or password:</strong>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form method="post" action="/signup">
+      <div><label>Username:</label>
+      <input type="text" name="username" value="<%= session['username_given_signup'] %>"/></div>
+      <div><label>Password:</label>
+      <input type="password" name="password" /></div>
+      <div><label>Repeat Password:</label>
+      <input type="password" name="password_confirmation" /></div>
+      <input type="submit" value="login"/>
+</form>
