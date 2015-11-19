@@ -1,11 +1,11 @@
 <h1>Post a Picture</h1>
 
-<% unless current_user %>
+<% unless @current_user %>
   You need to sign in to Pic Your Life
 <% end %>
 
 
-<% if current_user %>
+<% if @current_user %>
 <% if @photo.errors.any? %>
   <div>
     <strong>Some issues with your upload, please fix them:</strong>

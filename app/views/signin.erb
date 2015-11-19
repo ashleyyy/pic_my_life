@@ -1,15 +1,22 @@
 <h1>Sign In Time</h1>
 
-<form method="post" action="/signin">
-  <% if session[:user_id] %>
-    <div>Logged in user: <%= session[:user_id] %></div>
-  <% else %>
-    <form method="POST" action="/signin">
-      <div><label>Username:</label>
-      <input type="text" name="username"/></div>
-      <div><label>Password:</label>
-      <input type="password" name="password" />
-      <input type="submit" value="signin"/></div>
-    </form>
+<% if @current_user %>
+  <div>
+    <p>Logged in user: <%= @current_user.username %></p>
+  </div>
+<% else %>
+  <% if @error %>
+    <p><%= @error %></p>
   <% end %>
-</form>
+  <form method="POST" action="/signin">
+    <div>
+      <label>Username:</label>
+      <input type="text" name="user[username]" value="<%= @signin_name %>" />
+    </div>
+    <div>
+      <label>Password:</label>
+      <input type="password" name="user[password]" />
+    </div>
+    <button>Sign In</button>
+  </form>
+<% end %>
