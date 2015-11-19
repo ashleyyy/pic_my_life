@@ -3,30 +3,30 @@ helpers do
   def current_user () User.find(session[:user_id]) if session[:user_id] end
 end
 
-#PHOTOS/MAIN PAGE
+
 get '/' do
-  @pictures = Photo.all
-  erb :'index'
+  erb :index
 end
+
+#PHOTOS/MAIN PAGE
 
 get '/photos/new' do
-  @photos = Photo.new
-  erb :'photos.new'
+  @photo = Photo.new
+  erb :'photos/new'
 end
 
-get '/photos/:id' do
-  @photo = Photo.find params[:id]
-  erb :'photos/:id'
+get '/photos/show' do
+  # @photo = Photo.find params[:id]
+  erb :'photos/show'
 end
 
-post '/photos/new' do
+post '/photos/create' do
   photo = current_user.photos.new(
-    user_id: params[:user_id],
     caption:  params[:caption],
     url: params[:url],
   )
   if photo.save
-    erb :'photos/:id'
+    redirect '/'
   else
     erb :'photos/new'
   end
@@ -38,7 +38,12 @@ get '/signup' do
   erb :signup
 end
 
-post '/signout' do
+get '/signin' do
+  erb :signin
+end
+
+
+get '/signout' do
   session.clear
   redirect '/'
 end

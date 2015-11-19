@@ -1,0 +1,33 @@
+<h1>Post a New Picture</h1>
+
+<% unless current_user %>
+  You need to sign in to pick you life
+<% end %>
+
+
+<% if current_user %>
+<% if @photo.errors.any? %>
+  <div>
+    <strong>Some issues with your upload, please fix them:</strong>
+    <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form method="post" action="/photos/create">
+  <div>
+    <label>URL:</label>
+    <input type="text" name="url" value="<%= @photo.url %>">
+  </div>
+  <div>
+    <label>Caption:</label>
+    <input type="text" name="caption" value="<%= @photo.caption %>">
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
+<% end %>

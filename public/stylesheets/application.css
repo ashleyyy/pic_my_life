@@ -12,7 +12,7 @@ body {
 }
 
 #container {
-    width: 1200px;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -28,6 +28,12 @@ body {
 .grid-item {
   width: 33.33333%;
   float: left;
+}
+
+.grid-item-xs {
+  width: 16.666666%;
+  float: left;
+  padding: 1px;
 }
 
 .grid-sizer img {
@@ -48,3 +54,12 @@ body {
 a {
   color: #350a87;
 }
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 35px;
+}
+
+

@@ -19,14 +19,11 @@ GEM
     bond (0.5.1)
     builder (3.2.2)
     coderay (1.1.0)
-<<<<<<< HEAD
-=======
     diff-lcs (1.2.5)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
->>>>>>> 1fe0ef65acadeaef8e08e747bbd2a6a7ca20a567
     i18n (0.7.0)
     json (1.8.3)
     method_source (0.8.2)
@@ -51,8 +48,6 @@ GEM
       rack (>= 1.0)
       rack-test (~> 0.6.2)
       ripl (>= 0.7.0)
-<<<<<<< HEAD
-=======
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -66,7 +61,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
->>>>>>> 1fe0ef65acadeaef8e08e747bbd2a6a7ca20a567
     shotgun (0.9.1)
       rack (>= 1.0)
     sinatra (1.4.6)
@@ -100,27 +94,18 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-<<<<<<< HEAD
-  pry
-  puma
-  rake
-=======
   factory_girl
   faker
   pry
   puma
   rake
   rspec
->>>>>>> 1fe0ef65acadeaef8e08e747bbd2a6a7ca20a567
   shotgun
   sinatra
   sinatra-activerecord
   sinatra-contrib
   sqlite3
   tux
-<<<<<<< HEAD
 
 BUNDLED WITH
    1.10.6
-=======
->>>>>>> 1fe0ef65acadeaef8e08e747bbd2a6a7ca20a567
