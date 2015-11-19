@@ -1,0 +1,49 @@
+<% if session[:user_id] %>
+
+  <div>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="#"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+      <li role="presentation"><a href-"#">Hello, <%= @user.username %></a></li>
+      <li role="presentation"><a href="#">Your Profile</a></li>
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        All Photos by: <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+          <li><a href="#">Most Recent</li></a>
+          <li><a href="#">Most Funny</li></a>
+          <li><a href="#">Most Shameful</li></a>
+        </ul>
+      </li>
+    </ul>
+  </div> 
+
+<% else %> 
+
+  <div>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="#"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+
+      <li role="presentation" class="login">
+        <form method="post" action="/login">
+        <input type = "text" name = "username" placeholder = "username">
+        <input type = "password" name = "password" placeholder = "password">
+      </li>
+
+      <li role="presentation"><a href="/signup">Sign Up</a></li>
+
+
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        All Photos by: <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+          <li><a href="#">Most Recent</li></a>
+          <li><a href="#">Most Funny</li></a>
+          <li><a href="#">Most Shameful</li></a>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+<% end %>
