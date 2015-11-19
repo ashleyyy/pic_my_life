@@ -7,8 +7,11 @@
   <p></p>
   <h5><div class="photo">
   <a href="/photos/<%= photo.id %>">
-  <%= photo.url %>
+  <%= photo.url %>  </a>
   <%= photo.caption %>
-  </a>
+  <div>
+    <a href="/photos/<%= photo.id %>/votes/funny"><input type="button" value="funny"></a>
+    <a href="/photos/<%= photo.id %>/votes/shameful"><input type="button" value="shameful"></a>
+  </div>
 <% end %>
 <% end %>
