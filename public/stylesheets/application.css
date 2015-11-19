@@ -59,7 +59,46 @@ a {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 35px;
+  padding-top: 35px;
 }
 
+.white-space-on-top {
+  padding-top: 35px;
+}
+
+/* --- hover effects mess --- */
+
+.thumb {
+    position: relative;
+    overflow: hidden;
+}
+.thumb img {
+    width: 100%;
+/*    padding: 0;*/
+}
+.thumb > div {
+    background-color: rgba(0,0,0,0.10);
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: opacity 0.3s linear;
+    text-shadow: #000 1px 1px 0;
+    color: #ccc;
+}
+.thumb:hover > div {
+    display: block;
+    opacity: 1;
+}
+.thumb > div div {
+    padding: 10px;
+}
+.thumb p {
+    margin-bottom: 10px;
+}
+.thumb a {
+  color: white;
+}
 
