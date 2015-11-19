@@ -1,4 +1,4 @@
-#HELPERS
+# HELPERS
 helpers do
 
   def current_user
@@ -21,17 +21,17 @@ get '/' do
 end
 
 # PHOTOS
-get '/photos' do
+get '/photos/?' do
   @photos = Photo.all
   erb :'photos/index'
 end
 
-get '/photos/new' do
+get '/photos/new/?' do
   @photo = Photo.new
   erb :'photos/new'
 end
 
-post '/photos' do
+post '/photos/?' do
   @photo = @current_user.photos.new(params[:photo])
   if @photo.save
     redirect '/photos'
@@ -40,13 +40,17 @@ post '/photos' do
   end
 end
 
-get '/photos/:id' do |id|
-  @photo = Photo.find(id)
+get '/photos/:id/?' do |id|
+  begin
+    @photo = Photo.find(id)
+  rescue ActiveRecord::RecordNotFound
+    redirect '/photos'
+  end
   erb :'photos/show'
 end
 
 # SIGN/LOGIN
-get '/signup' do
+get '/signup/?' do
   @user = User.new
   erb :signup
 end
@@ -61,7 +65,7 @@ post '/signup' do
   end
 end
 
-get '/signin' do
+get '/signin/?' do
   erb :signin
 end
 
@@ -77,7 +81,7 @@ post '/signin' do
   end
 end
 
-get '/signout' do
+get '/signout/?' do
   session.clear
   redirect '/photos'
 end
@@ -91,3 +95,4 @@ post '/photos/:id/votes' do |id|
     )
   redirect '/photos'
 end
+
