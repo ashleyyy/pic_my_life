@@ -15,4 +15,7 @@ group :development, :test do
   gem 'pry'
   gem 'shotgun'
   gem 'sqlite3'
+  gem 'rspec'
+  gem 'faker'
+  gem 'factory_girl'
 end
