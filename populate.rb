@@ -37,18 +37,18 @@ end
 @users = FactoryGirl.create_list(:user, 10)
 
 # create photos
-@photo1 = FactoryGirl.create :photo, user: @user1, url: 'http://imgur.com/gallery/uVdRb6N'
-@photo2 = FactoryGirl.create :photo, user: @user1, url: 'http://imgur.com/gallery/59jMmt0'
-@photo3 = FactoryGirl.create :photo, user: @user1, url: 'http://imgur.com/gallery/FhA2wKd'
-@photo4 = FactoryGirl.create :photo, user: @user2, url: 'http://imgur.com/gallery/cbxBg'
-@photo5 = FactoryGirl.create :photo, user: @user2, url: 'http://imgur.com/gallery/lCxe5mI'
-@photo6 = FactoryGirl.create :photo, user: @user3, url: 'http://imgur.com/gallery/uR6pe'
-@photo7 = FactoryGirl.create :photo, user: @user3, url: 'http://imgur.com/gallery/1QyvYbd'
-@photo8 = FactoryGirl.create :photo, user: @user4, url: 'http://imgur.com/gallery/tHTZ15q'
-@photo9 = FactoryGirl.create :photo, user: @user4, url: 'http://imgur.com/gallery/y405w2k'
-@photo10 = FactoryGirl.create :photo, user: @user4, url: 'http://imgur.com/gallery/JMsMaty'
-@photo11 = FactoryGirl.create :photo, user: @user4, url: 'http://imgur.com/r/funny/V9IMBIr'
-@photo12 = FactoryGirl.create :photo, user: @user4, url: 'http://imgur.com/r/funny/f7B9meF'
+@photo1 = FactoryGirl.create :photo, user: @user1, url: 'http://i.imgur.com/f7B9meF.png'
+@photo2 = FactoryGirl.create :photo, user: @user1, url: 'http://i.imgur.com/59jMmt0.jpg'
+@photo3 = FactoryGirl.create :photo, user: @user1, url: 'http://i.imgur.com/GT12Dxk.jpg'
+@photo4 = FactoryGirl.create :photo, user: @user2, url: 'http://i.imgur.com/cbxBg.jpg'
+@photo5 = FactoryGirl.create :photo, user: @user2, url: 'http://i.imgur.com/3yz8W.jpg'
+@photo6 = FactoryGirl.create :photo, user: @user3, url: 'http://i.imgur.com/uR6pe.jpg'
+@photo7 = FactoryGirl.create :photo, user: @user3, url: 'http://i.imgur.com/1QyvYbd.jpg'
+@photo8 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/tHTZ15q.jpg'
+@photo9 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/y405w2k.jpg'
+@photo10 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/JMsMaty.jpg'
+@photo11 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/V9IMBIr.jpg'
+@photo12 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/oJOSj21.jpg'
 
 # create funny votes
 @vote1 = FactoryGirl.create :funny_vote, user: @user1, photo: @photo1
