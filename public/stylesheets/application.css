@@ -45,7 +45,7 @@ body {
 /* ---- end of masonry stuff ----- */
 
 
-.logo {max-height: 26px;}
+.logo {max-height: 20px;}
 
 .login {
   position: relative;
@@ -61,6 +61,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   padding-top: 35px;
+  max-width: 80%;
 }
 
 .white-space-on-top {
