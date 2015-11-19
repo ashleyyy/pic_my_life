@@ -1,18 +1,18 @@
 class Vote < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :photo, :counter_cache => true
+  belongs_to :photo, :counter_cache => true, dependent: :destroy
 
   validates :user_id, numericality: true
   validates :photo_id, numericality: true
 
-  validate :user_can_only_vote_once, on: :create
-  validate :context_must_be_valid, on: :create
+  validate :user_can_only_vote_once
+  validate :context_must_be_valid
 
   private 
 
   def context_must_be_valid
-    unless (context == "funny" || context == "shameful")
+    if context != "funny" && context != "shameful"
       errors.add(:context, "must be either funny or shameful")
     end
   end
