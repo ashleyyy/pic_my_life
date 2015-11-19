@@ -4,12 +4,12 @@
 
 
 <!-- this part is where the loop goes -->
-
+<% @photos.each do |photo| %>
 
     <div class="thumb grid-item">
-      <img src="http://i.imgur.com/bwy74ok.jpg" />
+      <img src="<%= photo.url %>" />
        <div>
-        <p><a href ="#">I meant to grow lemons. PML</p></a>
+        <p><a href ="#"><%= photo.caption %></p></a>
         <h3>
           <form method="POST" action="/photos/:id/votes">
             <input type ="hidden" name="context" value ="funny">
