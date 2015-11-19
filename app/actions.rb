@@ -71,12 +71,21 @@ post '/signin' do
 end
 
 # VOTES
-post '/photos/:id/votes' do
+get '/photos/:id/votes/funny' do
   photo = Photo.find(params[:id])
   photo.votes.create(
     user_id: current_user.id,
-    context: params[:context]
+    context: 'funny'
   ) if current_user
-  redirect '/photos/:id'
+  redirect "/"
+end
+
+get '/photos/:id/votes/shameful' do
+  photo = Photo.find(params[:id])
+  photo.votes.create(
+    user_id: current_user.id,
+    context: 'shameful'
+  ) if current_user
+  redirect "/"
 end
 
