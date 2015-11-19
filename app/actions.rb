@@ -5,7 +5,7 @@ end
 
 #PHOTOS/MAIN PAGE
 get '/' do
-  @pictures = Picture.all
+  @pictures = Photo.all
   erb :'index'
 end
 

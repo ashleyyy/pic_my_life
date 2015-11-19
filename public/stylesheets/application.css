@@ -11,34 +11,32 @@ body {
   font-family: sans-serif;
 }
 
+#container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
 /* ---- isotope ---- */
 
-.grid {
+.masonry-grid {
   background: #DDD;
 }
 
-/* clear fix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
 
 /* ---- .grid-item ---- */
 
-.grid-sizer,
 .grid-item {
   width: 33.33333%;
-}
-
-.grid-item {
   float: left;
 }
 
-.grid-item img {
-/*  display: block;*/
+.grid-sizer img {
+  display: block;
   max-width: 100%;
 }
+
+/* ---- end of masonry stuff ----- */
+
 
 .logo {max-height: 26px;}
 
