@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :photo do
     user
-    caption       Faker::Lorem.sentence
-    url           Faker::Avatar.image
-    votes_count   Faker::Number.digit
+    caption       { Faker::Lorem.sentence }
+    url           { Faker::Avatar.image }
   end
 end
