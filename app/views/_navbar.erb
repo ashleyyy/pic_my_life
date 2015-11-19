@@ -14,7 +14,7 @@
       <ul class="dropdown-menu">
         <li><a href="#">Your Pics</li></a>
         <li> 
-          <form method="post" action="/photos/:id" class="form-horizontal">
+          <form method="post" action="/signout" class="form-horizontal">
             <div class="form-group">
               <input class="btn btn-primary" type="submit" value="Sign Out" style="margin-left: 30px;">
             </div>
@@ -42,7 +42,7 @@
       </a>
       <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
         <li><div class="form-group">
-          <form method="post" action="/photos/new" class="form-horizontal">
+          <form method="post" action="/photos/create" class="form-horizontal">
              <div class="form-group">
               <input type="text" class="form-control" name="url" placeholder ="url">
             </div>
@@ -72,7 +72,7 @@
         </a>
         <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
           <li><div>
-            <form method="post" action="/user/login" class="form-horizontal">
+            <form method="post" action="/signin" class="form-horizontal">
                <div class="form-group">
                 <input type="text" class="form-control" name="username" placeholder ="username">
               </div>
@@ -94,7 +94,7 @@
         </a>
         <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
           <li><div class="form-group">
-            <form method="post" action="/user/new" class="form-horizontal">
+            <form method="post" action="/signup" class="form-horizontal">
                <div class="form-group">
                 <input type="text" class="form-control" name="username" placeholder ="username">
               </div>
