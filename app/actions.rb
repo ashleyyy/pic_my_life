@@ -1,10 +1,17 @@
 #HELPERS
 helpers do
-  def current_user () User.find(session[:user_id]) if session[:user_id] end
+  def current_user
+   User.find(session[:user_id]) if session[:user_id]
+  end
 end
 
-#PHOTOS/MAIN PAGE
+# INDEX PAGE
 get '/' do
+  erb :'index'
+end
+
+# PHOTOS
+get '/photos' do
   @photos = Photo.all
   erb :'photos/index'
 end
@@ -14,21 +21,18 @@ get '/photos/new' do
   erb :'photos/new'
 end
 
-get '/photos/:id' do
-  @photo = Photo.find params[:id]
-  erb :'photos/show'
-end
-
-post '/photos/create' do
-  photo = current_user.photos.new(
-    caption:  params[:caption],
-    url: params[:url],
-  )
-  if photo.save
-    redirect '/'
+post '/photos' do
+  @photo = current_user.photos.new(params[:photo])
+  if @photo.save
+    redirect '/photos'
   else
     erb :'photos/new'
   end
+end
+
+get '/photos/:id' do |id|
+  @photo = Photo.find(id)
+  erb :'photos/show'
 end
 
 #USER/SESSIONS
