@@ -6,18 +6,71 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <!--
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/stylesheets/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="/javascript/application.js"></script>
+   <script src="/javascript/masonry.pkgd.min.js"></script>
+  <script src="/javascript/imagesloaded.pkgd.min.js"></script>
+    <script src="/javascript/dropdown.js"></script>
 
   <title></title>
 </head>
 <body>
-  <%= yield %>
+
+<!-- if not logged in -->
+<div class="container"> 
+<ul class="nav nav-pills">
+  <li role="presentation"><a href="#"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+
+  <li role="presentation" class="login">
+    <form method="post" action="/login">
+    <input type = "text" name = "username" placeholder = "username">
+    <input type = "password" name = "password" placeholder = "password">
+    </li>
+
+  <li role="presentation"><a href="#">Sign Up</a></li>
+
+
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      All Photos by: <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dLabel">
+      <li><a href="#">Most Recent</li></a>
+      <li><a href="#">Most Funny</li></a>
+      <li><a href="#">Most Shameful</li></a>
+    </ul>
+  </li>
+</ul>
+
+<!-- if logged in -->
+
+<!-- <ul class="nav nav-pills">
+  <li role="presentation"><a href="#"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+  <li role="presentation"><a href-"#">Hello, username!</a></li>
+  <li role="presentation"><a href="#">Your Profile</a></li>
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      All Photos by: <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dLabel">
+      <li><a href="#">Most Recent</li></a>
+      <li><a href="#">Most Funny</li></a>
+      <li><a href="#">Most Shameful</li></a>
+    </ul>
+  </li>
+</ul> -->
+
+<%= yield %>
+</div>
 </body>
 </html>
+
+
