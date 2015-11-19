@@ -2,13 +2,27 @@
   <div id="masonry-grid">
     <div class="grid-sizer">
 
+
+<!-- this part is where the loop goes -->
+
+
     <div class="thumb grid-item">
       <img src="http://i.imgur.com/bwy74ok.jpg" />
        <div>
         <p><a href ="#">I meant to grow lemons. PML</p></a>
-        <h3><a href ="#">&#128518;</a>&nbsp;&nbsp;<a href ="#">&#128530;</a></h3>
+        <h3>
+          <form method="POST" action="/photos/:id/votes">
+            <input type ="hidden" name="context" value ="funny">
+            <button class ="ghost-btn">&#128518;</button>
+
+            <input type ="hidden" name="context" value ="shameful">
+            <button class ="ghost-btn">&#128530;</button>
+          </form>
+        </h3>
       </div>
     </div>
+
+<!-- this is just for demo -->
 
     <div class="thumb  grid-item">
       <img src="http://i.imgur.com/bAZWoqx.jpg" />
