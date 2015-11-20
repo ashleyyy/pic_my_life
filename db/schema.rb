@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20151118233429) do
   create_table "photos", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "caption"
-    t.string   "url"
+    t.string   "file"
     t.integer  "votes_count"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

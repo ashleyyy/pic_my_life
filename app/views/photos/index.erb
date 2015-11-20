@@ -4,7 +4,7 @@
 <% unless @photos.nil? %>
   <% @photos.each do |photo| %>
     <div class="photo">
-      <a href="/photos/<%= photo.id %>"><img src="<%= photo.url %>"></a>
+      <a href="/photos/<%= photo.id %>"><img src="<%= photo.file %>"></a>
       <p><%= photo.caption %></p>
       <% if @current_user %>
         <div>

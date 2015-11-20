@@ -1,10 +1,10 @@
 class Photo < ActiveRecord::Base
-
   belongs_to :user
   has_many :votes
+  has_one :picture
+  mount_uploader :file, PicUploader
 
   validates :user_id, presence: true, numericality: true
-  validates :url, presence: true
   # validate :url_must_be_valid
 
   # def url_must_be_valid

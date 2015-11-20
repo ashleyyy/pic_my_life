@@ -3,11 +3,14 @@ require 'bundler/setup'
 
 require 'active_support/all'
 
+
 # Load Sinatra Framework (with AR)
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 require 'pry'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -29,3 +32,10 @@ require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
+
+# CarrierWave configuration
+Dir[APP_ROOT.join('app', 'uploaders', '*.rb')].each { |file| require file }
+CarrierWave.configure do |config|
+  config.root = File.join(APP_ROOT + 'public') 
+end
+

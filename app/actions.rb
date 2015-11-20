@@ -49,6 +49,13 @@ get '/photos/:id/?' do |id|
   erb :'photos/show'
 end
 
+post '/photos/:id/upload' do
+  p = Photo.create(user_id: 1)
+  p.file = params[:upload]
+  p.save!
+  p.file
+end
+
 # SIGN/LOGIN
 get '/signup/?' do
   @user = User.new
