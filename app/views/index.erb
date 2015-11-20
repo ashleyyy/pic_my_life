@@ -11,7 +11,7 @@
        <div>
         <p><a href ="#"><%= photo.caption %></p></a>
         <h3>
-          <form method="POST" action="/photos/:id/votes">
+          <form method="POST" action="/photos/id/votes">
             <input type ="hidden" name="context" value ="funny">
             <button class ="ghost-btn">&#128518;</button>
 
@@ -21,7 +21,7 @@
         </h3>
       </div>
     </div>
-
+<% end %>
 <!-- this is just for demo -->
 
     <div class="thumb  grid-item">

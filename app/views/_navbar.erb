@@ -3,7 +3,7 @@
 
 <div>
   <ul class="nav nav-pills">
-    <li role="presentation"><a href="#"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+    <li role="presentation"><a href="/"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
 
     <li role="presentation" class="dropdown">
 
@@ -42,12 +42,12 @@
       </a>
       <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
         <li><div class="form-group">
-          <form method="post" action="/photos/create" class="form-horizontal">
+          <form method="post" action="/photos/" class="form-horizontal">
              <div class="form-group">
-              <input type="text" class="form-control" name="url" placeholder ="url">
+              <input type="text" class="form-control" name="photo[url]" placeholder ="url">
             </div>
              <div class="form-group">
-              <input type="text" class="form-control" name="caption" placeholder ="caption">
+              <input type="text" class="form-control" name="photo[caption]" placeholder ="caption">
             </div>
              <div class="form-group">
               <input class="btn btn-primary" type="submit" value="Submit">
@@ -63,7 +63,7 @@
 
   <div>
     <ul class="nav nav-pills">
-      <li role="presentation"><a href="#"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+      <li role="presentation"><a href="/"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
 
       <li role="presentation" class="dropdown">
         
@@ -96,10 +96,13 @@
           <li><div class="form-group">
             <form method="post" action="/signup" class="form-horizontal">
                <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder ="username">
-              </div>
+                <input type="text" class="form-control" name="user[username]" placeholder ="username">
+               </div>
                <div class="form-group">
-                <input type="text" class="form-control" name="password" placeholder ="password">
+                <input type="password" class="form-control" name="user[password]" placeholder ="password">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="user[password_confirmation]" placeholder ="confirm password">
               </div>
                <div class="form-group">
                 <input class="btn btn-primary" type="submit" value="Sign Up">

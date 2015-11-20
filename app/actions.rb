@@ -24,7 +24,7 @@ end
 # PHOTOS
 get '/photos/?' do
   @photos = Photo.all
-  erb :'photos/index'
+  erb :'index'
 end
 
 get '/photos/new/?' do
