@@ -9,7 +9,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :photos do |t|
       t.integer :user_id
       t.string  :caption
-      t.string  :url
+      t.string  :file
       t.integer :votes_count
       t.timestamps null: false
     end

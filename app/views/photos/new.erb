@@ -16,18 +16,14 @@
     </ul>
   </div>
 <% end %>
-
-<form method="post" action="/photos">
-  <div>
-    <label>URL:</label>
-    <input type="text" name="photo[url]" value="<%= @photo.url %>">
-  </div>
-  <div>
-    <label>Caption:</label>
-    <input type="text" name="photo[caption]" value="<%= @photo.caption %>">
-  </div>
-  <div>
-    <input type="submit" value="Submit">
-  </div>
-</form>
 <% end %>
+
+<div class ="container">
+  <h1>CarrierWave Uploader</h1>
+  <form action="/photos/:id/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="upload"><br>
+    <label>Caption :</label>
+    <input type="text" name="caption"><br>
+    <button type="submit">Share the SHAME !!!</button>
+  </form>
+</div>

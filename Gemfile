@@ -10,6 +10,7 @@ gem 'sinatra-activerecord'
 
 gem 'puma'
 gem 'tux'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry'
@@ -19,4 +20,5 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl'
   gem 'database_cleaner'
+  gem 'rack-test'
 end

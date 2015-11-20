@@ -33,30 +33,30 @@
         </ul>
       </li>
 
-      <li role="presentation" class="dropdown">
-        
-        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-        </a>
-        <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
-          <li><div class="form-group">
-            <form method="post" action="/photos/" class="form-horizontal">
-               <div class="form-group">
-                <input type="text" class="form-control" name="photo[url]" placeholder ="url">
-              </div>
-               <div class="form-group">
-                <input type="text" class="form-control" name="photo[caption]" placeholder ="caption">
-              </div>
-               <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="Submit">
-              </div></div>
-            </form>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+    <li role="presentation" class="dropdown">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+      </a>
+      <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
+        <li><div class="form-group">
+          <form method="post" action="/photos/upload" class="form-horizontal" enctype="multipart/form-data">
+             <div class="form-group">
+              <input type="file" class="form-control" name="upload" placeholder ="upload">
+            </div>
+             <div class="form-group">
+              <input type="text" class="form-control" name="caption" placeholder ="caption">
+            </div>
+             <div class="form-group">
+              <input class="btn btn-primary" type="submit" value="Submit">
+            </div></div>
+          </form>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
 <% else %> 
 

@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-=======
 <h1>All Pics</h1>
 
 <h3><a href="/photos/new">♠♠♠ Upload a photo♠♠♠</a></h3>
 <% unless @photos.nil? %>
   <% @photos.each do |photo| %>
     <div class="photo">
-      <a href="/photos/<%= photo.id %>"><img src="<%= photo.url %>"></a>
+      <a href="/photos/<%= photo.id %>"><img src="<%= photo.file %>"></a>
       <p><%= photo.caption %></p>
       <% if @current_user %>
         <div>
@@ -23,4 +21,3 @@
     </div>
   <% end %>
 <% end %>
->>>>>>> bae54f51191bf101ccb42b4ed0db3013269cf082
