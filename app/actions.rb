@@ -108,3 +108,16 @@ post '/photos/:id/votes' do |id|
     )
   redirect '/photos'
 end
+
+# USERS
+get '/users/:id/?' do |id|
+  begin
+    @user = User.find(id)
+    @photo = @user.photos.last
+    erb :'users/show'
+  rescue ActiveRecord::RecordNotFound
+    redirect '/photos'
+  end
+end
+
+
