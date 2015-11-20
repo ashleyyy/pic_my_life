@@ -15,7 +15,6 @@ helpers do
 
 end
 
-
 before do
   current_user
 end
@@ -37,14 +36,14 @@ get '/photos/new/?' do
   erb :'photos/new'
 end
 
-post '/photos/?' do
-  @photo = @current_user.photos.new(params[:photo]) if @current_user
-  if @photo.save
-    redirect '/photos'
-  else
-    erb :'photos/new'
-  end
-end
+# post '/photos/?' do
+#   @photo = @current_user.photos.new(params[:photo]) if @current_user
+#   if @photo.save
+#     redirect '/photos'
+#   else
+#     erb :'photos/new'
+#   end
+# end
 
 get '/photos/:id/?' do |id|
   begin
@@ -56,9 +55,7 @@ get '/photos/:id/?' do |id|
 end
 
 post '/photos/upload' do
-  p = Photo.create(user_id: @current_user.id, caption: params[:caption])
-  p.file = params[:upload]
-  p.save!
+  p = Photo.create(user_id: @current_user.id, caption: params[:caption], file: params[:upload])
   redirect '/'
 end
 
