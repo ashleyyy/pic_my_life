@@ -37,7 +37,6 @@ get '/photos/new/?' do
 end
 
 post '/photos/?' do
-  binding.pry
   @photo = @current_user.photos.new(params[:photo]) if @current_user
   if @photo.save
     redirect '/photos'
@@ -77,7 +76,6 @@ end
 
 post '/signin' do
   @user = User.find_by(params[:user])
-  binding.pry
   if @user
     session[:user_id] = @user.id
     redirect '/photos'
