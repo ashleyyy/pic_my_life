@@ -4,7 +4,7 @@
 
 
 <!-- this part is where the loop goes -->
-    <% @photos.reverse.each do |photo| %>
+    <% @photos.each do |photo| %>
 
       <div class="thumb grid-item">
         <img src="<%= photo.file %>" />
@@ -35,7 +35,7 @@
       </div>
     <% end %>
 <!-- this is just for demo -->
-
+<!-- 
 </div>
     <div class="thumb  grid-item">
       <img src="http://i.imgur.com/bAZWoqx.jpg" />
@@ -131,4 +131,4 @@
         <p><a href ="#">+1 Funny</a></p>
         <p><a href ="#">+1 Shameful</a></p>
         </div>
-    </div>
+    </div> -->
