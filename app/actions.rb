@@ -1,18 +1,20 @@
 # HELPERS
 helpers do
 
-def current_user
-  begin
-    @current_user = User.find(session[:user_id]) if session[:user_id]
-  rescue ActiveRecord::RecordNotFound
-    session[:user_id] = nil
+  def current_user
+    begin
+      @current_user = User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+      session[:user_id] = nil
+    end
   end
-end
-def can_vote?(photo, context)
+
+  def can_vote?(photo, context)
     @current_user.votes.find_by(photo_id: photo.id, context: context).nil?
-end
+  end
 
 end
+
 
 before do
   current_user
@@ -20,13 +22,14 @@ end
 
 # INDEX PAGE
 get '/' do
+  @photos = Photo.all
   erb :'index'
 end
 
 # PHOTOS
 get '/photos/?' do
   @photos = Photo.all
-  erb :'photos/index'
+  erb :'index'
 end
 
 get '/photos/new/?' do
@@ -35,7 +38,7 @@ get '/photos/new/?' do
 end
 
 post '/photos/?' do
-  @photo = @current_user.photos.new(params[:photo])
+  @photo = @current_user.photos.new(params[:photo]) if @current_user
   if @photo.save
     redirect '/photos'
   else
@@ -46,10 +49,10 @@ end
 get '/photos/:id/?' do |id|
   begin
     @photo = Photo.find(id)
+    erb :'photos/show'
   rescue ActiveRecord::RecordNotFound
     redirect '/photos'
   end
-  erb :'photos/show'
 end
 
 post '/photos/:id/upload' do
@@ -105,4 +108,3 @@ post '/photos/:id/votes' do |id|
     )
   redirect '/photos'
 end
-

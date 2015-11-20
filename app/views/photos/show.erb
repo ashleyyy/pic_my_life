@@ -1,3 +1,80 @@
-<h1><%= @photo.file %></h1>
-<img src="<%= @photo.file %>">
-<p><%= @photo.caption %></p>
+<div id="container"> 
+
+<div class ="well"> 
+  <img src="<%= @photo.url %>" class = "img-responsive center-block"/>
+  <h3 class ="pull-right"><%= Vote.where(context: "funny").count %> &#128518;
+  <br /><%= Vote.where(context: "shameful").count %> &#128530;</h3>
+  <h3 class ="text-center"><%= @photo.caption %></h3>
+</div>
+
+
+<div class ="white-space-on-top">more photos by user: <%= User.find(id = @photo.user_id).username %>
+
+<!-- do this with a loop -->
+
+  <% @photoroll = Photo.where(@photo.user_id = @photo.user_id) %>
+  <% @photoroll.each do |photo| %>
+
+  <div id="masonry-grid">
+    <div class="grid-sizer">
+      <a href = "/photos/<%= photo.id %>">
+        <div class="grid-item-xs">
+          <img src="<%= photo.url %>" />
+       </div>
+     </a>
+
+<% end %>
+
+<!-- this is just the demo -->
+
+     <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://i.imgur.com/aboaFoB.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://i.imgur.com/aboaFoB.jpg" />
+       </div>
+     </a>
+
+          <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://i.imgur.com/aboaFoB.jpg" />
+       </div>
+     </a>
+
+</div>
+</div>
+</div>
