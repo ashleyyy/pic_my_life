@@ -1,3 +1,4 @@
+# Rank by Most Funny votes
 get '/photos/funny' do
   @photos = Photo.joins("LEFT JOIN votes ON photos.id = votes.photo_id").
             where("votes.context = 'funny'").
@@ -6,6 +7,7 @@ get '/photos/funny' do
   erb :'/index'
 end
 
+# Rank by Most Shameful votes
 get '/photos/shameful' do
   @photos = Photo.joins("LEFT JOIN votes ON photos.id = votes.photo_id").
             where("votes.context = 'shameful'").
@@ -14,6 +16,13 @@ get '/photos/shameful' do
   erb :'/index'
 end
 
+# Show one random Photo
+get '/photos/random' do
+  @photo = Photo.order("RANDOM()").first
+  erb :'photos/show'
+end
+
+# Photos index page
 get '/photos' do
   @photos = Photo.order(created_at: :asc)
   erb :'photos/index'
