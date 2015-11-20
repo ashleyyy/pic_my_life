@@ -11,6 +11,7 @@ require 'sinatra/contrib/all' # Requires cookies, among other things
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 require 'pry'
+require 'require_all'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
@@ -28,9 +29,6 @@ end
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
-# Load the routes / actions
-require APP_ROOT.join('app', 'actions')
-
 # CarrierWave configuration
 Dir[APP_ROOT.join('app', 'uploaders', '*.rb')].each { |file| require file }
 CarrierWave.configure do |config|
@@ -38,3 +36,6 @@ CarrierWave.configure do |config|
 end
 
 ActiveRecord::Base.raise_in_transactional_callbacks = true
+
+#require APP_ROOT.join('app', 'actions')
+require_all 'app/actions/*.rb'
