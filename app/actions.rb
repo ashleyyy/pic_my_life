@@ -2,7 +2,11 @@
 helpers do
 
   def current_user
-   @current_user = User.find(session[:user_id]) if session[:user_id]
+    begin
+      @current_user = User.find(session[:user_id]) if session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+      session[:user_id] = nil
+    end
   end
 
   def can_vote?(photo, context)
@@ -10,6 +14,7 @@ helpers do
   end
 
 end
+
 
 before do
   current_user
@@ -33,7 +38,7 @@ get '/photos/new/?' do
 end
 
 post '/photos/?' do
-  @photo = @current_user.photos.new(params[:photo])
+  @photo = @current_user.photos.new(params[:photo]) if @current_user
   if @photo.save
     redirect '/photos'
   else
@@ -44,10 +49,10 @@ end
 get '/photos/:id/?' do |id|
   begin
     @photo = Photo.find(id)
+    erb :'photos/show'
   rescue ActiveRecord::RecordNotFound
     redirect '/photos'
   end
-  erb :'photos/show'
 end
 
 # SIGN/LOGIN
