@@ -1,3 +1,5 @@
+require_relative './../uploaders/pic_uploader'
+
 class Photo < ActiveRecord::Base
   belongs_to :user
   has_many :votes

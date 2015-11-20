@@ -1,6 +1,6 @@
 require './app_config'
 
-ENV['DATABASE']="test"
+ENV['DATABASE'] = "test"
 
 AppConfig.establish_connection
 

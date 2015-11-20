@@ -11,18 +11,18 @@ class Importer
     @users = FactoryGirl.create_list(:user, 10)
 
     # create photos
-    @photo1 = FactoryGirl.create :photo, user: @user1, url: 'http://i.imgur.com/f7B9meF.png'
-    @photo2 = FactoryGirl.create :photo, user: @user1, url: 'http://i.imgur.com/59jMmt0.jpg'
-    @photo3 = FactoryGirl.create :photo, user: @user1, url: 'http://i.imgur.com/GT12Dxk.jpg'
-    @photo4 = FactoryGirl.create :photo, user: @user2, url: 'http://i.imgur.com/cbxBg.jpg'
-    @photo5 = FactoryGirl.create :photo, user: @user2, url: 'http://i.imgur.com/3yz8W.jpg'
-    @photo6 = FactoryGirl.create :photo, user: @user3, url: 'http://i.imgur.com/uR6pe.jpg'
-    @photo7 = FactoryGirl.create :photo, user: @user3, url: 'http://i.imgur.com/1QyvYbd.jpg'
-    @photo8 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/tHTZ15q.jpg'
-    @photo9 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/y405w2k.jpg'
-    @photo10 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/JMsMaty.jpg'
-    @photo11 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/V9IMBIr.jpg'
-    @photo12 = FactoryGirl.create :photo, user: @user4, url: 'http://i.imgur.com/oJOSj21.jpg'
+    @photo1 = FactoryGirl.create :photo, user: @user1
+    @photo2 = FactoryGirl.create :photo, user: @user1
+    @photo3 = FactoryGirl.create :photo, user: @user1
+    @photo4 = FactoryGirl.create :photo, user: @user2
+    @photo5 = FactoryGirl.create :photo, user: @user2
+    @photo6 = FactoryGirl.create :photo, user: @user3
+    @photo7 = FactoryGirl.create :photo, user: @user3
+    @photo8 = FactoryGirl.create :photo, user: @user4
+    @photo9 = FactoryGirl.create :photo, user: @user4
+    @photo10 = FactoryGirl.create :photo, user: @user4
+    @photo11 = FactoryGirl.create :photo, user: @user4
+    @photo12 = FactoryGirl.create :photo, user: @user4
 
     # create funny votes
     @vote1 = FactoryGirl.create :funny_vote, user: @user1, photo: @photo1

@@ -7,6 +7,8 @@ require 'active_record'
 require 'factory_girl'
 require 'faker'
 require 'database_cleaner'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 
 require './app/models/user'
 require './app/models/photo'
@@ -17,6 +19,7 @@ require './factories/users_factory'
 require './factories/votes_factory'
 
 require './lib/importer'
+
 
 module AppConfig
 

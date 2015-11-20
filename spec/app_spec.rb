@@ -1,5 +1,4 @@
-ENV["RACK_ENV"] = "test"
-
+ENV['DATABASE'] = "test"
 require "rspec"
 require "rack/test"
 require "./config/environment"
@@ -23,7 +22,7 @@ describe "Sinatra App" do
 
     it "displays home page content" do
       get "/"
-      expect(last_response.body).to include("Home Page")
+      expect(last_response.body).to include("Sign Up")
     end
   end
  
@@ -36,7 +35,7 @@ describe "Sinatra App" do
 
     it "displays photos content" do
       get "/photos"
-      expect(last_response.body).to include("All Pics")
+      expect(last_response.body).to include("photowall")
     end
   end
 
@@ -53,21 +52,12 @@ describe "Sinatra App" do
     end
   end
 
-  describe "POST '/photos'" do
-    #TODO : how to test post requests that need a current_user
-    it "creates a photo instance" do
-      @user = User.create(username: "alberta", password: "password", password_confirmation: "password")
-      post '/signin', { user: { username: "alberta", password: "password"}}
-      post '/photos', { photo: { url: "http://www.google.com", caption: "Searching" } }
-    end
-  end
-
   describe "GET '/photos/:id'" do
 
     it "loads individual photo page" do
       @photo = FactoryGirl.create :photo
       get "/photos/#{@photo.id}"
-      expect(last_response.body).to include(@photo.url)
+      expect(last_response.body).to include(@photo.caption)
     end
   end
 
@@ -85,6 +75,23 @@ describe "Sinatra App" do
   end
 
   describe "POST '/signup'" do
+
+    it "should redirect to photos if params are valid" do
+      post "/signup", { user: { username: "Lucy", password: "something", password_confirmation: "something"}}
+      expect(last_response.redirect?).to be true
+      follow_redirect!
+      expect(last_request.url).to eq("http://example.org/photos")
+    end
+
+    it "should not redirect if params are invalid" do
+      post "/signup", { user: { username: "Lucy", password: "something", password_confirmation: "some"}}
+      expect(last_response.redirect?).to be false
+    end
+
+    it "should have entered username if params are invalid" do
+      post "/signup", { user: { username: "Lucy", password: "something", password_confirmation: "some"}}
+      expect(last_response.body).to include("Lucy")
+    end
   end
 
   describe "GET '/signin'" do
@@ -101,6 +108,12 @@ describe "Sinatra App" do
   end
 
   describe "POST '/signin'" do
+
+    it "should redirect to photos page if signin is valid" do
+      @user = User.create(username: "fake", password: "mypassword", password_confirmation: "mypassword")
+      post '/signin', { user: { username: "fake", password: "mypassword" } }
+      expect(last_response.redirect?).to be true
+    end
   end
 
   describe "GET '/signout'" do
@@ -115,6 +128,15 @@ describe "Sinatra App" do
   end
 
   describe "POST '/photos/:id/votes'" do
+
+    it "creates a new vote and redirects to photos page" do
+      @user = User.create(username: "fake", password: "mypassword", password_confirmation: "mypassword")
+      post '/signin', { user: { username: "fake", password: "mypassword" } }
+      @photo = FactoryGirl.create :photo, user_id: @user.id
+      post "/photos/#{@photo.id}/votes", { choice: "funny" }
+      expect(Vote.where(user_id: @user.id, photo_id: @photo.id).count).to eq(1)
+      expect(last_response.redirect?).to be true
+    end
   end
 
 end

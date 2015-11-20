@@ -3,7 +3,6 @@ require 'bundler/setup'
 
 require 'active_support/all'
 
-
 # Load Sinatra Framework (with AR)
 require 'sinatra'
 require 'sinatra/activerecord'
@@ -20,7 +19,6 @@ APP_NAME = APP_ROOT.basename.to_s
 configure do
   set :root, APP_ROOT.to_path
   set :server, :puma
-
   enable :sessions
   set :session_secret, ENV['SESSION_KEY'] || 'lighthouselabssecret'
 
@@ -39,3 +37,4 @@ CarrierWave.configure do |config|
   config.root = File.join(APP_ROOT + 'public') 
 end
 
+ActiveRecord::Base.raise_in_transactional_callbacks = true

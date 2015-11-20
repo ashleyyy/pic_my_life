@@ -32,15 +32,6 @@ describe Photo do
     @photo = FactoryGirl.create :photo, user: @user
   end
 
-  describe "url" do
-
-    it "should be required" do
-      @photo.url = nil
-      expect(@photo).to_not be_valid
-    end
-
-  end
-
   describe "user_id" do
 
     it "should be required" do
