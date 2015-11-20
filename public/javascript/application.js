@@ -1,9 +1,9 @@
 $(function(){
  
-    var $container = $('#container');
+    var $photowall = $('.photowall');
    
-    $container.imagesLoaded( function(){
-      $container.masonry({
+    $photowall.imagesLoaded( function(){
+      $photowall.masonry({
         itemSelector : '.grid-item'
       });
     });

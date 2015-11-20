@@ -1,133 +1,37 @@
-<div id="container"> 
+<div class="photowall"> 
   <div id="masonry-grid">
     <div class="grid-sizer">
 
 
 <!-- this part is where the loop goes -->
-<% @photos.each do |photo| %>
+    <% @photos.reverse.each do |photo| %>
 
-    <div class="thumb grid-item">
-      <img src="<%= photo.url %>" />
-       <div>
-        <p><a href ="/photos/<%= photo.id %>/"><%= photo.caption %></p></a>
-        <h3>
-          <% if @current_user %>
-            <div>
-             <form action="/photos/<%= photo.id %>/votes" method="POST">
-              <% if can_vote?(photo, "funny") %>
-               <input type="hidden" name="choice" value="funny">
-               <button class ="ghost-btn">&#128518;</button>
-             <% end %>
-             <% if can_vote?(photo, "shameful") %>
-              <input type ="hidden" name="choice" value ="shameful">
-              <button class ="ghost-btn">&#128530;</button>
+      <div class="thumb grid-item">
+        <img src="<%= photo.url %>" />
+        <div>
+          <p>
+            <a href ="/photos/<%= photo.id %>/"><%= photo.caption %>
+            </a>
+          </p>
+          <h3>
+            <% if @current_user %>
+              <div>
+                <form action="/photos/<%= photo.id %>/votes" method="POST">
+                  <% if can_vote?(photo, "funny") %>
+                    <input type="hidden" name="choice" value="funny">
+                    <button class ="ghost-btn">&#128518;</button>
+                  <% end %>
+                  <% if can_vote?(photo, "shameful") %>
+                    <input type ="hidden" name="choice" value ="shameful">
+                    <button class ="ghost-btn">&#128530;</button>
+                  <% end %>
+                </form>
+              </div>
             <% end %>
-          </form>
+          </h3>
         </div>
-      <% end %>
-        </h3>
       </div>
-    </div>
-
-<% end %>
+    <% end %>
 <!-- this is just for demo -->
 
-
-    <div class="thumb  grid-item">
-      <img src="http://i.imgur.com/bAZWoqx.jpg" />
-      <div>
-        <p><a href ="#">I fell asleep in the pool. FMP</a></p>
-        <h3><a href ="#">&#128518;</a>&nbsp;&nbsp;<a href ="#">&#128530;</a></h3>
-      </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src="/images/ARerror.png" />
-     <div>
-        <p><a href ="#">no method for nil:NilClass. FMP</a></p>
-        <h3><a href ="#">&#128518;</a>&nbsp;&nbsp;<a href ="#">&#128530;</a></h3>
-        </div>
-    </div>
-
-    <div class="thumb  grid-item">
-      <img src="http://i.imgur.com/PgmEBSB.jpg" />
-    <div>
-        <p>I forgot my phone. FMP</p>
-        <p><a href ="#">&#128077;</a><a href ="#">&#128078;</a></p>
-        </div>
-    </div>
-    
-    <div class="thumb grid-item">
-      <img src="http://i.imgur.com/aboaFoB.jpg" />
-    <div>
-        <p>I went to the job interview a day early. FMP</p>
-        <p><a href ="#">&#128077;</a><a href ="#">&#128078;</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src="http://i.imgur.com/hODreXI.jpg" />
-    <div>
-        <p>Squinting gives me wrinkles. FMP</p>
-        <p><a href ="#">&#128077;</a><a href ="#">&#128078;</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src="http://i.imgur.com/UORFJ3w.jpg" />
-    <div>
-        <p><a href ="#">+1 Funny</a></p>
-        <p><a href ="#">+1 Shameful</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src ="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg">
-    <div>
-        <p><a href ="#">+1 Funny</a></p>
-        <p><a href ="#">+1 Shameful</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src ="http://c1.staticflickr.com/1/746/23070016556_986e7196bf_b.jpg">
-    <div>
-        <p><a href ="#">+1 Funny</a></p>
-        <p><a href ="#">+1 Shameful</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src= "http://c1.staticflickr.com/1/641/23082909122_3d83957b0b_b.jpg">
-    <div>
-        <p><a href ="#">+1 Funny</a></p>
-        <p><a href ="#">+1 Shameful</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src="http://i.imgur.com/LkmcILl.jpg" />
-    <div>
-        <p><a href ="#">+1 Funny</a></p>
-        <p><a href ="#">+1 Shameful</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src="http://i.imgur.com/q9zO6tw.jpg" />
-    <div>
-        <p><a href ="#">+1 Funny</a></p>
-        <p><a href ="#">+1 Shameful</a></p>
-        </div>
-    </div>
-
-    <div class="thumb grid-item">
-      <img src="http://i.imgur.com/r8p3Xgq.jpg" />
-    <div>
-        <p><a href ="#">+1 Funny</a></p>
-        <p><a href ="#">+1 Shameful</a></p>
-        </div>
-    </div>
-
-    </div>
 </div>

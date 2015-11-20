@@ -11,17 +11,18 @@ body {
   font-family: sans-serif;
 }
 
-#container {
-    width: 90%;
+
+/*.photowall {
+    
     margin: 0 auto;
-}
+}*/
 
 /* ---- isotope ---- */
 
 .masonry-grid {
   background: #DDD;
+  width: 90%;
 }
-
 
 /* ---- .grid-item ---- */
 
@@ -31,7 +32,7 @@ body {
   padding: 1px;
 }
 
-.grid-item-xs {
+.xs {
   width: 16.666666%;
   float: left;
   padding: 1px;
