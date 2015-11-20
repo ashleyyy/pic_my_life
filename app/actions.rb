@@ -20,42 +20,41 @@
 #   current_user
 # end
 
-<<<<<<< HEAD
 # INDEX PAGE
-get '/' do
-  @photos = Photo.all
-  erb :'index'
-end
+# get '/' do
+#   @photos = Photo.all
+#   erb :'index'
+# end
 
 # PHOTOS
-get '/photos/?' do
-  @photos = Photo.all
-  erb :'index'
-end
+# get '/photos/?' do
+#   @photos = Photo.all
+#   erb :'index'
+# end
 
-get '/photos/new/?' do
-  @photo = Photo.new
-  erb :'photos/new'
-end
+# get '/photos/new/?' do
+#   @photo = Photo.new
+#   erb :'photos/new'
+# end
 
-post '/photos/?' do
-  @photo = @current_user.photos.new(params[:photo]) if @current_user
-  if @photo.save
-    redirect '/photos'
-  else
-    erb :'photos/new'
-  end
-end
+# post '/photos/?' do
+#   @photo = @current_user.photos.new(params[:photo]) if @current_user
+#   if @photo.save
+#     redirect '/photos'
+#   else
+#     erb :'photos/new'
+#   end
+# end
 
-get '/photos/:id/?' do |id|
-  begin
-    @photo = Photo.find(id)
-    erb :'photos/show'
-  rescue ActiveRecord::RecordNotFound
-    redirect '/photos'
-  end
-end
-=======
+# get '/photos/:id/?' do |id|
+#   begin
+#     @photo = Photo.find(id)
+#     erb :'photos/show'
+#   rescue ActiveRecord::RecordNotFound
+#     redirect '/photos'
+#   end
+# end
+
 # # INDEX PAGE
 # get '/' do
 #   erb :'index'
