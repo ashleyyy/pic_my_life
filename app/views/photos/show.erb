@@ -2,17 +2,17 @@
 
 <div class ="well"> 
   <img src="<%= @photo.url %>" class = "img-responsive center-block"/>
-  <h3 class ="pull-right">15 &#128518;
-  <br />4 &#128530;</h3>
+  <h3 class ="pull-right"><%= Vote.where(context: "funny").count %> &#128518;
+  <br /><%= Vote.where(context: "shameful").count %> &#128530;</h3>
   <h3 class ="text-center"><%= @photo.caption %></h3>
 </div>
 
 
-<div class ="white-space-on-top">more photos by user: username
+<div class ="white-space-on-top">more photos by user: <%= User.find(id = @photo.user_id).username %>
 
 <!-- do this with a loop -->
 
-  <% @photoroll = Photo.where(@photo.user_id: @photo.user_id) %>
+  <% @photoroll = Photo.where(@photo.user_id = @photo.user_id) %>
   <% @photoroll.each do |photo| %>
 
   <div id="masonry-grid">
@@ -24,45 +24,56 @@
      </a>
 
 <% end %>
+
 <!-- this is just the demo -->
 
-    <div class="grid-item-xs thumb">
-      <img src ="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg">
-       <div>
-        <p>What is this bird? PML</p>
-        <p><h3><a href ="#">&#128518;</a>&nbsp;<a href ="#">&#128530;</a></h3></p>
-      </div>
-    </div>
-
-    <div class="grid-item-xs thumb">
-      <img src="http://i.imgur.com/PgmEBSB.jpg" />
-       <div>
-        <p>I think I left the stove on. PML</p>
-        <p><h3><a href ="#">&#128518;</a>&nbsp;<a href ="#">&#128530;</a></h3></p>
-      </div>
-    </div>
-
-     <a href = "/photo/id">
+     <a href = "/photo/#{photo.id}">
         <div class="grid-item-xs">
-          <img src ="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg">
-        </div>
-      </a>
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
 
-    <div class="grid-item-xs">
-      <img src="http://i.imgur.com/bwy74ok.jpg" />
-    </div>
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
 
-    <div class="grid-item-xs">
-      <img src ="http://i.imgur.com/aboaFoB.jpg">
-    </div>
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://i.imgur.com/aboaFoB.jpg" />
+       </div>
+     </a>
 
-    <div class="grid-item-xs">
-      <img src="http://i.imgur.com/bwy74ok.jpg" />
-    </div>
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
 
-    <div class="grid-item-xs">
-      <img src="http://i.imgur.com/bwy74ok.jpg" />
-    </div>
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://i.imgur.com/aboaFoB.jpg" />
+       </div>
+     </a>
+
+          <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item-xs">
+          <img src="http://i.imgur.com/aboaFoB.jpg" />
+       </div>
+     </a>
 
 </div>
 </div>

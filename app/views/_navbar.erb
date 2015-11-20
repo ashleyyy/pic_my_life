@@ -8,13 +8,13 @@
     <li role="presentation" class="dropdown">
 
       <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Signed in as USERNAME
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Signed in as <%= @current_user.username %>
       </a>
       
       <ul class="dropdown-menu">
         <li><a href="#">Your Pics</li></a>
         <li> 
-          <form method="post" action="/signout" class="form-horizontal">
+          <form method="get" action="/signout" class="form-horizontal">
             <div class="form-group">
               <input class="btn btn-primary" type="submit" value="Sign Out" style="margin-left: 30px;">
             </div>
