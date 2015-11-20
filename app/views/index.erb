@@ -9,17 +9,17 @@
     <div class="thumb grid-item">
       <img src="<%= photo.url %>" />
        <div>
-        <p><a href ="#"><%= photo.caption %></p></a>
+        <p><a href ="/photos/<%= photo.id %>/"><%= photo.caption %></p></a>
         <h3>
           <% if @current_user %>
             <div>
              <form action="/photos/<%= photo.id %>/votes" method="POST">
               <% if can_vote?(photo, "funny") %>
-               <input type ="hidden" name="context" value ="funny">
+               <input type="hidden" name="choice" value="funny">
                <button class ="ghost-btn">&#128518;</button>
              <% end %>
              <% if can_vote?(photo, "shameful") %>
-              <input type ="hidden" name="context" value ="shameful">
+              <input type ="hidden" name="choice" value ="shameful">
               <button class ="ghost-btn">&#128530;</button>
             <% end %>
           </form>
