@@ -19,4 +19,5 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl'
   gem 'database_cleaner'
+  gem 'rack-test'
 end
