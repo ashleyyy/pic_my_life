@@ -16,7 +16,7 @@
   <div id="masonry-grid">
     <div class="grid-sizer">
 
-  <% @photoroll = Photo.where(@photo.user_id = @photo.user_id) %>
+  <% @photoroll = Photo.where(user_id:  @photo.user_id) %>
   <% @photoroll.each do |photo| %>
 
       <a href = "/photos/<%= photo.id %>">

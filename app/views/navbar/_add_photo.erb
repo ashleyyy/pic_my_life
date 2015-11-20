@@ -1,0 +1,29 @@
+<li role="presentation" class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-form" id="upload-form">
+    <li>
+      <div class="form-group">
+        <form method="post" action="/photos/upload" class="form-horizontal" enctype="multipart/form-data">
+          
+          <div class="form-group">
+            <input type="file" class="form-control" name="upload" placeholder ="upload">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="caption" placeholder ="caption">
+          </div>
+          
+          <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="Submit">
+          </div>
+
+        </form>
+      </div>
+    </li>
+  </ul>
+
+</li>
