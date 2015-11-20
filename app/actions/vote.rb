@@ -4,5 +4,5 @@ post '/photos/:id/votes' do |id|
     user_id: @current_user.id,
     context: params[:choice]
     )
-  redirect '/photos'
+  redirect '/'
 end
