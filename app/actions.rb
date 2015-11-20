@@ -55,11 +55,11 @@ get '/photos/:id/?' do |id|
   end
 end
 
-post '/photos/:id/upload' do
-  p = Photo.create(user_id: 1)
+post '/photos/upload' do
+  p = Photo.create(user_id: @current_user.id, caption: params[:caption])
   p.file = params[:upload]
   p.save!
-  p.file
+  redirect '/'
 end
 
 # SIGN/LOGIN

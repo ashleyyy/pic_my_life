@@ -1,7 +1,7 @@
 <div id="container"> 
 
 <div class ="well"> 
-  <img src="<%= @photo.url %>" class = "img-responsive center-block"/>
+  <img src="<%= @photo.file %>" class = "img-responsive center-block"/>
   <h3 class ="pull-right"><%= Vote.where(context: "funny").count %> &#128518;
   <br /><%= Vote.where(context: "shameful").count %> &#128530;</h3>
   <h3 class ="text-center"><%= @photo.caption %></h3>
@@ -19,7 +19,7 @@
     <div class="grid-sizer">
       <a href = "/photos/<%= photo.id %>">
         <div class="grid-item-xs">
-          <img src="<%= photo.url %>" />
+          <img src="<%= photo.file %>" />
        </div>
      </a>
 

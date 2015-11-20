@@ -7,7 +7,7 @@
 <% @photos.each do |photo| %>
 
     <div class="thumb grid-item">
-      <img src="<%= photo.url %>" />
+      <img src="<%= photo.file %>" />
        <div>
         <p><a href ="/photos/<%= photo.id %>/"><%= photo.caption %></p></a>
         <h3>
