@@ -1,0 +1,119 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* force scrollbar */
+html { overflow-y: scroll; }
+
+body {
+  font-family: sans-serif;
+}
+
+#container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* ---- isotope ---- */
+
+.masonry-grid {
+  background: #DDD;
+}
+
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  width: 33.33333%;
+  float: left;
+  padding: 1px;
+}
+
+.grid-item-xs {
+  width: 16.666666%;
+  float: left;
+  padding: 1px;
+}
+
+.grid-sizer img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---- end of masonry stuff ----- */
+
+
+.logo {max-height: 20px;}
+
+.login {
+  position: relative;
+  top: 11px;
+}
+
+a {
+  color: #350a87;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 35px;
+  max-width: 80%;
+}
+
+.white-space-on-top {
+  padding-top: 35px;
+}
+
+/* --- hover effects mess --- */
+
+.thumb {
+    position: relative;
+    overflow: hidden;
+}
+.thumb img {
+    width: 100%;
+/*    padding: 0;*/
+}
+.thumb > div {
+    background-color: rgba(0,0,0,0.15);
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: opacity 0.3s linear;
+    text-shadow: #000 1px 1px 0;
+    color: white;
+    padding: 10px;
+}
+.thumb:hover > div {
+    display: block;
+    opacity: 1;
+}
+.thumb:hover a {
+  text-decoration: none;
+}
+
+.thumb p {
+    margin-bottom: 10px;
+}
+.thumb a {
+  color: white;
+}
+
+.ghost-btn {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+}
+
+
+
+

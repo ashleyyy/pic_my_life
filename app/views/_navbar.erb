@@ -1,0 +1,130 @@
+<div class="container">
+<% if session[:user_id] %>
+
+<div>
+  <ul class="nav nav-pills">
+    <li role="presentation"><a href="/"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+
+    <li role="presentation" class="dropdown">
+
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Signed in as USERNAME
+      </a>
+      
+      <ul class="dropdown-menu">
+        <li><a href="#">Your Pics</li></a>
+        <li> 
+          <form method="post" action="/signout" class="form-horizontal">
+            <div class="form-group">
+              <input class="btn btn-primary" type="submit" value="Sign Out" style="margin-left: 30px;">
+            </div>
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Sort
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Most Recent</li></a>
+        <li><a href="#">Most Funny</li></a>
+        <li><a href="#">Most Shameful</li></a>
+      </ul>
+    </li>
+
+    <li role="presentation" class="dropdown">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+      </a>
+      <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
+        <li><div class="form-group">
+          <form method="post" action="/photos/" class="form-horizontal">
+             <div class="form-group">
+              <input type="text" class="form-control" name="photo[url]" placeholder ="url">
+            </div>
+             <div class="form-group">
+              <input type="text" class="form-control" name="photo[caption]" placeholder ="caption">
+            </div>
+             <div class="form-group">
+              <input class="btn btn-primary" type="submit" value="Submit">
+            </div></div>
+          </form>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<% else %> 
+
+  <div>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="/"><img src ="/images/fmpminilogo.png" class="logo"></a></li>
+
+      <li role="presentation" class="dropdown">
+        
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign In
+        </a>
+        <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
+          <li><div>
+            <form method="post" action="/signin" class="form-horizontal">
+               <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder ="username">
+              </div>
+               <div class="form-group">
+                <input type="text" class="form-control" name="password" placeholder ="password">
+              </div>
+               <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Sign In">
+              </div></div>
+            </form>
+          </li>
+        </ul>
+      </li>
+
+      <li role="presentation" class="dropdown">
+        
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Join
+        </a>
+        <ul class="dropdown-menu" style="padding: 15px 25px 0 25px;">
+          <li><div class="form-group">
+            <form method="post" action="/signup" class="form-horizontal">
+               <div class="form-group">
+                <input type="text" class="form-control" name="user[username]" placeholder ="username">
+               </div>
+               <div class="form-group">
+                <input type="password" class="form-control" name="user[password]" placeholder ="password">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="user[password_confirmation]" placeholder ="confirm password">
+              </div>
+               <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Sign Up">
+              </div></div>
+            </form>
+          </li>
+        </ul>
+      </li>
+
+
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Sort
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+          <li><a href="#">Most Recent</li></a>
+          <li><a href="#">Most Funny</li></a>
+          <li><a href="#">Most Shameful</li></a>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+<% end %>
+</div>

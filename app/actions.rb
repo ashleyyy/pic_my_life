@@ -22,13 +22,14 @@ end
 
 # INDEX PAGE
 get '/' do
+  @photos = Photo.all
   erb :'index'
 end
 
 # PHOTOS
 get '/photos/?' do
   @photos = Photo.all
-  erb :'photos/index'
+  erb :'index'
 end
 
 get '/photos/new/?' do
@@ -100,4 +101,3 @@ post '/photos/:id/votes' do |id|
     )
   redirect '/photos'
 end
-
