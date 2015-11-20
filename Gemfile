@@ -9,6 +9,7 @@ gem 'sinatra-activerecord'
 
 gem 'puma'
 gem 'tux'
+gem 'require_all'
 
 group :development, :test do
   gem 'pry'

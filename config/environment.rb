@@ -8,7 +8,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
 
-require 'pry'
+require 'require_all'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
@@ -28,4 +28,6 @@ end
 require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
-require APP_ROOT.join('app', 'actions')
+#require APP_ROOT.join('app', 'actions')
+
+require_all 'app/actions/*.rb'
