@@ -1,7 +1,7 @@
 <div class ="well"> 
   <img src="<%= @photo.file %>" class = "img-responsive center-block"/>
-  <h3 class ="pull-right"><%= Vote.where(context: "funny").count %> &#128518;
-  <br /><%= Vote.where(context: "shameful").count %> &#128530;</h3>
+  <h3 class ="pull-right"><%= @photo.votes.where(context: "funny").count %> &#128518;
+  <br /><%= @photo.votes.where(context: "shameful").count %> &#128530;</h3>
   <h3 class ="text-center"><%= @photo.caption %></h3>
 </div>
 
@@ -20,7 +20,7 @@
   <% @photoroll.each do |photo| %>
 
       <a href = "/photos/<%= photo.id %>">
-        <div class="grid-item-xs">
+        <div class="grid-item xs">
           <img src="<%= photo.file %>" />
 
        </div>
