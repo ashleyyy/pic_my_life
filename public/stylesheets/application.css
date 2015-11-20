@@ -115,6 +115,20 @@ a {
      cursor: pointer;
 }
 
+#upload-form {
+      min-width: 360px;
+      
+}
+
+#signedin {
+      min-width: 6px; 
+}
+
+.dropdown-form {
+      padding: 15px 25px 0 25px;
+}
+
+
 
 
 
