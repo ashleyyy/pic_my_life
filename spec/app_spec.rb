@@ -4,7 +4,7 @@ require "rspec"
 require "rack/test"
 require "./config/environment"
 require "./app/actions"
-require "./spec_helper"
+require_relative "spec_helper"
 
 
 describe "Sinatra App" do
