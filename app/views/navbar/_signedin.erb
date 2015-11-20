@@ -5,7 +5,7 @@
   </a>
 
   <ul class="dropdown-menu" id="signedin">
-    <li><a href="#">Your Pics</li></a>
+    <li><a href="/users/<%= current_user.id %>">Your Pics</li></a>
     <li> 
       <form method="get" action="/signout">
         <div class="form-group" style="position: relative;left: 10px;">

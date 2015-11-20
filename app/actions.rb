@@ -1,5 +1,5 @@
-# HELPERS
-# helpers do
+# # HELPERS
+# # helpers do
 
 #   def current_user
 #     begin
@@ -20,13 +20,13 @@
 #   current_user
 # end
 
-# INDEX PAGE
+# # INDEX PAGE
 # get '/' do
 #   @photos = Photo.all
 #   erb :'index'
 # end
 
-# PHOTOS
+# # PHOTOS
 # get '/photos/?' do
 #   @photos = Photo.all
 #   erb :'index'
@@ -55,12 +55,12 @@
 #   end
 # end
 
-# # INDEX PAGE
+# # # INDEX PAGE
 # get '/' do
 #   erb :'index'
 # end
 
-# PHOTOS
+# # PHOTOS
 # get '/photos/?' do
 #   @photos = Photo.all
 #   erb :'photos/index'
@@ -89,7 +89,7 @@
 #   end
 # end
 
-# SIGN/LOGIN
+# # SIGN/LOGIN
 # get '/signup/?' do
 #   @user = User.new
 #   erb :signup
@@ -126,24 +126,15 @@
 #   redirect '/photos'
 # end
 
-# VOTES
-post '/photos/:id/votes' do |id|
-  photo = Photo.find(id)
-  photo.votes.create(
-    user_id: @current_user.id,
-    context: params[:choice]
-    )
-  redirect '/photos'
-end
+# # VOTES
+# post '/photos/:id/votes' do |id|
+#   photo = Photo.find(id)
+#   photo.votes.create(
+#     user_id: @current_user.id,
+#     context: params[:choice]
+#     )
+#   redirect '/photos'
+# end
 
-# USERS
-get '/users/:id/?' do |id|
-  begin
-    @user = User.find(id)
-    @photo = @user.photos.last
-    erb :'users/show'
-  rescue ActiveRecord::RecordNotFound
-    redirect '/photos'
-  end
-end
+
 
