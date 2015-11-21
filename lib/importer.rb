@@ -38,12 +38,12 @@ class Importer
     @vote9 = FactoryGirl.create :shameful_vote, user: @user2, photo: @photo6
     @vote10 = FactoryGirl.create :shameful_vote, user: @user3, photo: @photo6
     @vote11 = FactoryGirl.create :shameful_vote, user: @user4, photo: @photo6
-    @vote12 = FactoryGirl.create :shameful_vote, user: @user1, photo: @photo11
-    @vote13 = FactoryGirl.create :shameful_vote, user: @user2, photo: @photo8
+    # @vote12 = FactoryGirl.create :shameful_vote, user: @user1, photo: @photo11
+    # @vote13 = FactoryGirl.create :shameful_vote, user: @user2, photo: @photo8
 
     # Create very funny photo
     @users.each do |user|
-      FactoryGirl.create :funny_vote, photo: @photo10, user: user
+      FactoryGirl.create :funny_vote, photo: @photo5, user: user
     end
 
     # Create very shameful photo

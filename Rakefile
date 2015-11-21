@@ -13,7 +13,7 @@ end
 
 desc "drop the database"
 task "db:drop" do
-  rm_f Appconfig::DATABASE_PATH
+  rm_f AppConfig::DATABASE_PATH
 end
 
 task 'db:create_migration' do
