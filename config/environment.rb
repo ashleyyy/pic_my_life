@@ -37,5 +37,4 @@ end
 
 ActiveRecord::Base.raise_in_transactional_callbacks = true
 
-#require APP_ROOT.join('app', 'actions')
 require_all 'app/actions/*.rb'
