@@ -1,5 +1,5 @@
 <div class ="well"> 
-  <img src="<%= @photo.file %>" class = "img-responsive center-block"/>
+  <img src="<%= @photo.file %>" class = "img-responsive center-block bigphoto"/>
 
   <div class ="pull-right photo-votes">
     <%= erb :'/vote/_vote', locals: { photo: @photo } %>
