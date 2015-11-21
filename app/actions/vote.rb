@@ -6,3 +6,11 @@ post '/photos/:id/votes' do |id|
     )
   redirect back
 end
+
+delete '/photos/:id/votes' do |id|
+  photo = Photo.find(id)
+  # binding.pry
+  vote = photo.votes.where(user_id: @current_user.id).where(context: params[:choice])
+  vote.destroy
+  redirect back
+end
