@@ -13,12 +13,6 @@ body {
   font-family: sans-serif;
 }
 
-
-/*.photowall {
-    
-    margin: 0 auto;
-}*/
-
 /* ---- isotope ---- */
 
 .masonry-grid {
@@ -48,7 +42,9 @@ body {
 /* ---- end of masonry stuff ----- */
 
 
-.logo {max-height: 20px;}
+.logo {
+  max-height: 20px;
+}
 
 .login {
   position: relative;
@@ -114,6 +110,7 @@ a {
 .thumb p {
   margin-bottom: 10px;
 }
+
 .thumb a {
   color: white;
 }
