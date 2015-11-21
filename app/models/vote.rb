@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :photo, :counter_cache => true, dependent: :destroy
+  belongs_to :photo, :counter_cache => true
 
   validates :user_id, numericality: true
   validates :photo_id, numericality: true
