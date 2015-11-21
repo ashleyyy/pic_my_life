@@ -4,32 +4,20 @@
 
 <!-- START PHOTO LOOP -->
     <% @photos.each do |photo| %>
-      <a href ="/photos/<%= photo.id %>/">
         <div class="thumb grid-item">
           <img src="<%= photo.file %>" />
           <div>
-            <p><%= photo.caption %></p>
-            <% if @current_user %>
-              <div>
-                <% if can_vote?(photo, "funny") %>
-                  <form action="/photos/<%= photo.id %>/votes" method="POST">
-                    <input type="hidden" name="choice" value="funny">
-                    <button class ="ghost-btn">&#128518;</button>
-                  </form>
-                <% end %>
-                <% if can_vote?(photo, "shameful") %>
-                  <form action="/photos/<%= photo.id %>/votes" method="POST">
-                    <input type ="hidden" name="choice" value ="shameful">
-                    <button class ="ghost-btn">&#128530;</button>
-                  </form>
-                <% end %>
-              </div>
-            <% end %>
+            <h3 class="meme-font text-center">
+              <a href ="/photos/<%= photo.id %>/"><%= photo.caption %></a>
+            </h3>
+            <div>
+              <%= erb :'vote/_vote', locals: { photo: photo } %>
+            </div>
           </div>
         </div>
-      </a>
     <% end %>
 <!-- END PHOTO loop -->
+
     </div>
   </div>
 </div>

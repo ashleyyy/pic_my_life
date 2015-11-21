@@ -2,16 +2,17 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/application.css">
+
     <!-- Javascript files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/javascript/imagesloaded.pkgd.min.js"></script>
     <script src="/javascript/dropdown.js"></script>
     <script src="/javascript/masonry.pkgd.min.js"></script>
     <script src="/javascript/application.js"></script>
-
     <title>Pic My Life</title>
   </head>
 
@@ -19,6 +20,8 @@
     <div class="container">
       <%= erb :'/_navbar' %>
       <%= yield %>
+      <%= erb :'/_footer' %>
     </div>
   </body>
+  
 </html>
