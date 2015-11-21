@@ -2,7 +2,7 @@ require_relative './../uploaders/pic_uploader'
 
 class Photo < ActiveRecord::Base
   belongs_to :user
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_one :picture
   mount_uploader :file, PicUploader
 
