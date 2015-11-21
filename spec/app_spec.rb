@@ -2,7 +2,7 @@ ENV['DATABASE'] = "test"
 require "rspec"
 require "rack/test"
 require "./config/environment"
-require "./app/actions"
+
 require_relative "spec_helper"
 
 

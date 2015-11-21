@@ -4,11 +4,12 @@ require 'bundler/setup'
 require 'active_support/all'
 
 require 'active_record'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+
 require 'factory_girl'
 require 'faker'
 require 'database_cleaner'
-require 'carrierwave'
-require 'carrierwave/orm/activerecord'
 
 require './app/models/user'
 require './app/models/photo'
