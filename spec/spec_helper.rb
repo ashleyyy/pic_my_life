@@ -12,6 +12,10 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+
+    if Rails.env.test? || Rails.env.cucumber?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end 
   end
 
   config.after(:each) do

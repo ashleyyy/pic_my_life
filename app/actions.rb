@@ -3,9 +3,7 @@ helpers do
 
   def current_user
     begin
-      binding.pry
       @current_user = User.find(session[:user_id]) if session[:user_id]
-      binding.pry
     rescue ActiveRecord::RecordNotFound
       session[:user_id] = nil
     end
@@ -74,17 +72,12 @@ end
 
 post '/signin' do
   @user = User.find_by(username: params[:username], password: params[:password])
-  binding.pry
   if @user
-    binding.pry
     session[:user_id] = @user.id
     redirect '/photos'
-    binding.pry
   else
-    binding.pry
     @signin_name = params[:username]
     @error = "Incorrect username or password."
-    binding.pry
     erb :'/signin'
   end
 end
