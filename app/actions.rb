@@ -3,7 +3,9 @@ helpers do
 
   def current_user
     begin
+      binding.pry
       @current_user = User.find(session[:user_id]) if session[:user_id]
+      binding.pry
     rescue ActiveRecord::RecordNotFound
       session[:user_id] = nil
     end
@@ -35,15 +37,6 @@ get '/photos/new/?' do
   @photo = Photo.new
   erb :'photos/new'
 end
-
-# post '/photos/?' do
-#   @photo = @current_user.photos.new(params[:photo]) if @current_user
-#   if @photo.save
-#     redirect '/photos'
-#   else
-#     erb :'photos/new'
-#   end
-# end
 
 get '/photos/:id/?' do |id|
   begin
@@ -80,13 +73,18 @@ get '/signin/?' do
 end
 
 post '/signin' do
-  @user = User.find_by(params[:user])
+  @user = User.find_by(username: params[:username], password: params[:password])
+  binding.pry
   if @user
+    binding.pry
     session[:user_id] = @user.id
     redirect '/photos'
+    binding.pry
   else
-    @signin_name = params[:user][:username]
+    binding.pry
+    @signin_name = params[:username]
     @error = "Incorrect username or password."
+    binding.pry
     erb :'/signin'
   end
 end

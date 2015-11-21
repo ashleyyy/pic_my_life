@@ -1,0 +1,82 @@
+
+<div class ="white-space-on-top">
+  more photos by user: <%= user.username %>
+</div>
+
+<!-- do this with a loop -->
+
+<div class="photowall"> 
+  <div id="masonry-grid">
+    <div class="grid-sizer">
+
+  <% @photoroll = Photo.where(user_id:  user.id) %>
+  <% @photoroll.each do |photo| %>
+
+      <a href = "/photos/<%= photo.id %>">
+        <div class="grid-item xs">
+          <img src="<%= photo.file %>" />
+
+       </div>
+     </a>
+
+<% end %>
+
+<!-- this is just the demo -->
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://i.imgur.com/aboaFoB.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://c2.staticflickr.com/6/5687/23075017092_0f7fb2328b_b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://cdnpix.com/show/imgs/62b11fb03d925e4c8c2323441e8ebd1f.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://i.telegraph.co.uk/multimedia/archive/02830/cat_2830677b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://localhost:3000/uploads/pics/animals_widewallpaper_cat_74664.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://i.telegraph.co.uk/multimedia/archive/02830/cat_2830677b.jpg" />
+       </div>
+     </a>
+
+      <a href = "/photo/#{photo.id}">
+        <div class="grid-item xs">
+          <img src="http://theheightsanimalhospital.com/clients/15389/images/playful-kitten-6683.jpg" />
+       </div>
+     </a>
+
+</div> 
+</div>
+</div>

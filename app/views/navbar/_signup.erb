@@ -1,0 +1,23 @@
+<li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Join
+        </a>
+        <ul class="dropdown-menu dropdown-form">
+          <li><div class="form-group">
+            <form method="post" action="/signup" class="form-horizontal">
+               <div class="form-group">
+                <input type="text" class="form-control" name="user[username]" placeholder ="username">
+               </div>
+               <div class="form-group">
+                <input type="password" class="form-control" name="user[password]" placeholder ="password">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="user[password_confirmation]" placeholder ="confirm password">
+              </div>
+               <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Sign Up">
+              </div></div>
+            </form>
+          </li>
+        </ul>
+         </li>

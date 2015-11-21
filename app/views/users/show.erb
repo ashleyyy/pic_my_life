@@ -1,0 +1,8 @@
+<!---user show page -->
+
+ 
+<h3><%= @user.username %>'s most recent pic:</h3>
+
+<%= erb :'photos/_bigphoto', locals: { photo: @photo, user: @user } %>
+
+<%= erb :'/photos/_photothumbnails', locals: { user: @user} %>
