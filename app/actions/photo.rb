@@ -50,6 +50,10 @@ end
 post '/photos/upload' do
   p = Photo.create(user_id: @current_user.id, caption: params[:caption])
   p.file = params[:upload]
-  p.save!
-  redirect '/'
+  if p.save
+   redirect '/'
+  else
+    @photo = p
+    erb :'photos/new'
+  end
 end
