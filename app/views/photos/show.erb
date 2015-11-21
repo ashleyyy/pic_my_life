@@ -1,7 +1,7 @@
 <!--- photo show page -->
 
-<%= erb :'photos/_bigphoto', locals: { photo: @photo, user: User.find(id = @photo.user_id) } %>
+<%= erb :'photos/_bigphoto', locals: { photo: @photo, user: @user } %>
 
-<%= erb :'/photos/_photothumbnails', locals: { photo: @photo, user: User.find(id = @photo.user_id) } %>
+<%= erb :'/photos/_photothumbnails', locals: { photo: @photo, user: @user, photoroll: @photoroll } %>
 
  
