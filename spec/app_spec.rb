@@ -57,7 +57,7 @@ describe "Sinatra App" do
     it "loads individual photo page" do
       @photo = FactoryGirl.create :photo
       get "/photos/#{@photo.id}"
-      expect(last_response.body).to include(@photo.caption)
+      expect(last_response.body).to include("more photos by")
     end
   end
 
