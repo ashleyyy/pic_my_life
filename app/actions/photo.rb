@@ -24,6 +24,8 @@ end
 # Show one random Photo
 get '/photos/random' do
   @photo = Photo.order("RANDOM()").first
+  @user = User.find_by(id: @photo.user_id)
+  @photoroll = Photo.where(user_id: @user.id)
   erb :'photos/show'
 end
 
