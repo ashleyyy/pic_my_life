@@ -1,87 +1,86 @@
-<h3> 
+<% if @current_user %>
 
-  <% if @current_user %>
+  <% if can_vote?(photo, "funny") %>
 
-    <% if can_vote?(photo, "funny") %>
-
-      <form action="/photos/<%= photo.id %>/votes" method="POST">
-        <input type="hidden" name="choice" value="funny">
-          <button class ="ghost-btn">
-            <span class="vote">
-              &#128518;
-            </span>
-          </button>
-          <span class="meme-font">
-            <%= photo.votes.where(context: "funny").count %>
+    <form action="/photos/<%= photo.id %>/votes" method="POST">
+      <input type="hidden" name="choice" value="funny">
+        <button class ="ghost-btn">
+          <span class="vote vote-icon">
+            &#128518;
           </span>
-      </form>
-
-    <% else %>
-
-      <form action="/photos/<%= photo.id %>/votes" method="POST">
-        <input type="hidden" name="choice" value="funny">
-        <input type="hidden" name="_method" value="DELETE">
-          <button class ="ghost-btn">
-            <span class="voted">
-              &#128518;
-            </span>
-          </button>
-          <span class="meme-font voted">
-            <%= photo.votes.where(context: "funny").count %>
-          </span>
-      </form>
-
-    <% end %>
-
-    <% if can_vote?(photo, "shameful") %>
-
-      <form action="/photos/<%= photo.id %>/votes" method="POST">
-        <input type ="hidden" name="choice" value ="shameful">
-          <button class ="ghost-btn">
-            <span class="vote">
-              &#128530;
-            </button>
-          </span>
-    
+        </button>
         <span class="meme-font">
-          <%= photo.votes.where(context: "shameful").count %>
+          <%= photo.votes.where(context: "funny").count %>
         </span>
-      </form>
-
-    <% else %>
-
-      <form action="/photos/<%= photo.id %>/votes" method="POST">
-        <input type="hidden" name="choice" value="shameful">
-        <input type="hidden" name="_method" value="DELETE">
-          <button class ="ghost-btn">
-            <span class="voted">
-              &#128530;
-            </span>
-          </button>
-          <span class="meme-font voted">
-            <%= photo.votes.where(context: "shameful").count %>
-          </span>
-      </form>
-
-    <% end %>
+    </form>
 
   <% else %>
 
+    <form action="/photos/<%= photo.id %>/votes" method="POST">
+      <input type="hidden" name="choice" value="funny">
+      <input type="hidden" name="_method" value="DELETE">
+        <button class ="ghost-btn">
+          <span class="voted vote-icon">
+            &#128518;
+          </span>
+        </button>
+        <span class="meme-font voted">
+          <%= photo.votes.where(context: "funny").count %>
+        </span>
+    </form>
+
+  <% end %>
+
+  <% if can_vote?(photo, "shameful") %>
+
+    <form action="/photos/<%= photo.id %>/votes" method="POST">
+      <input type ="hidden" name="choice" value ="shameful">
+        <button class ="ghost-btn">
+          <span class="vote vote-icon">
+            &#128530;
+          </button>
+        </span>
+  
+      <span class="meme-font">
+        <%= photo.votes.where(context: "shameful").count %>
+      </span>
+    </form>
+
+  <% else %>
+
+    <form action="/photos/<%= photo.id %>/votes" method="POST">
+      <input type="hidden" name="choice" value="shameful">
+      <input type="hidden" name="_method" value="DELETE">
+        <h3>
+        <button class ="ghost-btn">
+          <span class="voted vote-icon">
+            &#128530;
+          </span>
+        </button>
+        <span class="meme-font voted">
+          <%= photo.votes.where(context: "shameful").count %>
+        </span>
+        </h3>
+    </form>
+
+  <% end %>
+
+<% else %>
+  
+  <p>
+    <span class="vote-icon">&#128518;</span>
     <span class="meme-font">
       <%= photo.votes.where(context: "funny").count %>
     </span>
-
-    &#128518; <br />
-
+  </p>
+  <p>
+    <span class="vote-icon">&#128530;</span>
     <span class="meme-font">
       <%= photo.votes.where(context: "shameful").count %>
     </span> 
-    
-    &#128530;
+  </p>
 
- <% end %>
-
-</h3>
+<% end %>
 
 
 
