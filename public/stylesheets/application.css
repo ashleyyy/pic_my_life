@@ -57,6 +57,16 @@ a {
   color: #350a87;
 }
 
+.btn-primary {
+    color: #fff;
+    background-color: #350a87;
+    border-color: #350a87;
+}
+
+.photowall {
+    background-color: #f5f5f5;
+    border-color: #e3e3e3;
+}
 .center-block {
   display: block;
   margin-left: auto;
