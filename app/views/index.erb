@@ -2,18 +2,13 @@
   <div id="masonry-grid">
     <div class="grid-sizer">
 
-
-<!-- this part is where the loop goes -->
+<!-- START PHOTO LOOP -->
     <% @photos.each do |photo| %>
-
-      <div class="thumb grid-item">
-        <img src="<%= photo.file %>" />
-        <div>
-          <p>
-            <a href ="/photos/<%= photo.id %>/"><%= photo.caption %>
-            </a>
-          </p>
-          <h3>
+      <a href ="/photos/<%= photo.id %>/">
+        <div class="thumb grid-item">
+          <img src="<%= photo.file %>" />
+          <div>
+            <p><%= photo.caption %></p>
             <% if @current_user %>
               <div>
                 <% if can_vote?(photo, "funny") %>
@@ -30,10 +25,14 @@
                 <% end %>
               </div>
             <% end %>
-          </h3>
+          </div>
         </div>
-      </div>
+      </a>
     <% end %>
+<!-- END PHOTO loop -->
+    </div>
+  </div>
+</div>
 <!-- this is just for demo -->
 <!-- 
 </div>

@@ -3,6 +3,6 @@ before do
 end
 
 get '/' do
-  @photos = Photo.all
+  @photos = Photo.order(created_at: :desc)
   erb :'index'
 end

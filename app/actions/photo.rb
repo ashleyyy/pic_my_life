@@ -1,18 +1,23 @@
 # Rank by Most Funny votes
 get '/photos/funny' do
-  @photos = Photo.joins("LEFT JOIN votes ON photos.id = votes.photo_id").
-            where("votes.context = 'funny'").
-            select("photos.*, count(votes.context) as funny_count").
+  @photos = Photo.select("photos.*, count(CASE WHEN context='funny' THEN 1 END) as funny_count").
+            joins("LEFT JOIN votes ON photos.id = votes.photo_id").  
             group("photos.id").order("funny_count desc")
   erb :'/index'
 end
 
 # Rank by Most Shameful votes
 get '/photos/shameful' do
-  @photos = Photo.joins("LEFT JOIN votes ON photos.id = votes.photo_id").
-            where("votes.context = 'shameful'").
-            select("photos.*, count(votes.context) as shameful_count").
+  @photos = Photo.select("photos.*, count(CASE WHEN context='shameful' THEN 1 END) as shameful_count").
+            joins("LEFT OUTER JOIN votes ON photos.id = votes.photo_id").
             group("photos.id").order("shameful_count desc")
+  erb :'/index'
+end
+
+# Rank by Most Votes
+get '/photos/total' do
+  @photos = Photo.joins("LEFT OUTER JOIN votes ON photos.id = votes.photo_id").
+            group("photos.id").order("count(votes.id) desc")
   erb :'/index'
 end
 
@@ -24,7 +29,7 @@ end
 
 # Photos index page
 get '/photos' do
-  @photos = Photo.order(created_at: :asc)
+  @photos = Photo.order(created_at: :desc)
   erb :'photos/index'
 end
 
@@ -32,15 +37,6 @@ get '/photos/new/?' do
   @photo = Photo.new
   erb :'photos/new'
 end
-
-# post '/photos/?' do
-#   @photo = @current_user.photos.new(params[:photo]) if @current_user
-#   if @photo.save
-#     redirect '/photos'
-#   else
-#     erb :'photos/new'
-#   end
-# end
 
 get '/photos/:id/?' do |id|
   begin

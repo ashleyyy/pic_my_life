@@ -13,7 +13,11 @@ helpers do
   end
 
   def can_vote?(photo, context)
-    @current_user.votes.find_by(photo_id: photo.id, context: context).nil?
+    if logged_in?
+      @current_user.votes.find_by(photo_id: photo.id, context: context).nil?
+    else
+      false
+    end
   end
 
 end
