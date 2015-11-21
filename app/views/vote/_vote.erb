@@ -1,0 +1,81 @@
+
+
+<h3> 
+
+  <% if @current_user %>
+
+    <% if can_vote?(photo, "funny") %>
+
+      <form action="/photos/<%= photo.id %>/votes" method="POST">
+        <input type="hidden" name="choice" value="funny">
+          <button class ="ghost-btn">
+            <span class="vote">
+              &#128518;
+            </span>
+          </button>
+          <span class="meme-font">
+            <%= photo.votes.where(context: "funny").count %>
+          </span>
+      </form>
+
+    <% else %>
+
+      <span class="voted">
+        &#128518;
+      </span>
+
+      <span class="meme-font">
+        <%= photo.votes.where(context: "funny").count %>
+      </span>
+      <br />
+
+    <% end %>
+
+    <% if can_vote?(photo, "shameful") %>
+
+      <form action="/photos/<%= photo.id %>/votes" method="POST">
+        <input type ="hidden" name="choice" value ="shameful">
+          <button class ="ghost-btn">
+            <span class="vote">
+              &#128530;
+            </button>
+          </span>
+    
+        <span class="meme-font">
+          <%= photo.votes.where(context: "funny").count %>
+        </span>
+      </form>
+
+    <% else %>
+
+      <span class="voted"> 
+        &#128530;
+      </span>
+
+      <span class="meme-font">
+        <%= photo.votes.where(context: "shameful").count %>
+      </span> 
+
+    <% end %>
+
+  <% else %>
+
+    <span class="meme-font">
+      <%= photo.votes.where(context: "funny").count %>
+    </span>
+
+    &#128518; <br />
+
+    <span class="meme-font">
+      <%= photo.votes.where(context: "shameful").count %>
+    </span> 
+    
+    &#128530;
+
+ <% end %>
+
+</h3>
+
+
+
+    

@@ -3,52 +3,27 @@
     <div class="grid-sizer">
 
 
-<!-- this part is where the loop goes -->
-    <% @photos.each do |photo| %>
+    <!-- this part is where the loop goes -->
+  <% @photos.each do |photo| %>
 
-      <div class="thumb grid-item">
-        <img src="<%= photo.file %>" />
+    <div class="thumb grid-item">
+      <img src="<%= photo.file %>" />
         <div>
-          <h3>
-            <a href ="/photos/<%= photo.id %>/"><%= photo.caption %>
+
+          <h3 class="meme-font text-center">
+            <a href ="/photos/<%= photo.id %>/">
+              <%= photo.caption %>
             </a>
           </h3>
-          
+            
           <div>
-          <h3>
-            <% if @current_user %>
-              
-                <% if can_vote?(photo, "funny") %>
-                  <form action="/photos/<%= photo.id %>/votes" method="POST">
-                    <input type="hidden" name="choice" value="funny">
-                    <button class ="ghost-btn">&#128518;</button>
-                  </form>
-                <% else %>
-                  <%= photo.votes.where(context: "funny").count %> &#128518;
-                  <br />
-                <% end %>
-
-                <% if can_vote?(photo, "shameful") %>
-                  <form action="/photos/<%= photo.id %>/votes" method="POST">
-                    <input type ="hidden" name="choice" value ="shameful">
-                    <button class ="ghost-btn">&#128530;</button>
-                  </form>
-                <% else %>
-                  <%= photo.votes.where(context: "shameful").count %> &#128530;
-                <% end %>
-              
-            <% else %>
-            <%= photo.votes.where(context: "funny").count %> &#128518;
-            <br />
-            <%= photo.votes.where(context: "shameful").count %> &#128530;
-
-
-            <% end %>
-            </div>
-          </h3>
-        </div>
+            <%= erb :'vote/_vote', locals: { photo: photo } %>
+          </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+
+
 <!-- this is just for demo -->
 <!-- 
 </div>

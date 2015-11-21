@@ -98,7 +98,7 @@ a {
     top: 0;
     left: 0;
     -webkit-transition: opacity 0.3s linear;
-    text-shadow: #000 1px 1px 0;
+    /*text-shadow: #000 1px 1px 0;*/
     color: white;
     padding: 10px;
 }
@@ -139,6 +139,22 @@ a {
 }
 
 
+.meme-font {
+  font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', 'sans serif';
+  font-size: 26px;
+  font-style: bold;
+ /* font-variant: normal;
+  font-weight: 500;
+  line-height: 15.4px;*/
+  color: #FFFFFF;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-transform: uppercase;
+}
 
+.vote:hover {
+  text-shadow: 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF;
+      }
 
-
+.voted {
+  text-shadow: 0 0 0.5em #FF0000, 0 0 0.5em #FF0000;
+      }
