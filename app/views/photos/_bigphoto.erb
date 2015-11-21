@@ -1,15 +1,16 @@
 <div class ="well"> 
   <img src="<%= @photo.file %>" class = "img-responsive center-block"/>
 
-  <div class ="pull-right">
-    <%= erb :'/vote/_vote', locals: { photo: @photo } %>
-    <br />
-  </div>
+    <div class ="pull-right">
+      <%= erb :'/vote/_vote', locals: { photo: @photo } %>
+      <br />
+    </div>
 
-  <h3 class ="text-center"><%= @photo.caption %>
-  <br />
-  <br />
+  <h3 class ="text-center">
+    <%= @photo.caption %>
+    <br />
+    <br />
   </h3>
-  
+
 </div>
 
