@@ -46,9 +46,16 @@ describe "Sinatra App" do
       expect(last_response).to be_ok
     end
 
-    it "loads new photo content" do
+    it "loads sign in message if no current user" do
       get "/photos/new"
-      expect(last_response.body).to include("Post a Picture")
+      expect(last_response.body).to include("You need to sign in")
+    end
+
+    it "loads image upload if user signed in" do
+      @user = FactoryGirl.create :user
+      post "/signin", { user: { username: @user.username, password: @user.password }}
+      get "/photos/new"
+      expect(last_response.body).to include("Share the SHAAAAME")
     end
   end
 
@@ -83,6 +90,11 @@ describe "Sinatra App" do
       expect(last_request.url).to eq("http://example.org/photos")
     end
 
+    it "should create a new user if params are valid" do
+      post "/signup", { user: { username: "Lucy", password: "something", password_confirmation: "something"}}
+      expect(User.first.username).to eq("Lucy")
+    end
+
     it "should not redirect if params are invalid" do
       post "/signup", { user: { username: "Lucy", password: "something", password_confirmation: "some"}}
       expect(last_response.redirect?).to be false
@@ -114,15 +126,32 @@ describe "Sinatra App" do
       post '/signin', { user: { username: "fake", password: "mypassword" } }
       expect(last_response.redirect?).to be true
     end
+
+    it "should not redirect to photos page if signin is invalid" do
+      @user = User.create(username: "name", password: "something", password_confirmation: "something")
+      post '/signin', { user: { username: "name", password: "nothing" } }
+      expect(last_response.redirect?).to be false
+    end
   end
 
   describe "GET '/signout'" do
+
+    before :each do
+      @user = User.create(username: "fake", password: "mypassword", password_confirmation: "mypassword")
+      post '/signin', { user: { username: "fake", password: "mypassword" } }
+    end
 
     it "redirects to photos page" do
       get "/signout"
       expect(last_response.redirect?).to be true
       follow_redirect!
       expect(last_request.url).to eq("http://example.org/photos")
+    end
+
+    it "should redirect to photos page with sign in" do
+      get "/signout"
+      follow_redirect!
+      expect(last_response.body).to include("Sign In")
     end
 
   end
