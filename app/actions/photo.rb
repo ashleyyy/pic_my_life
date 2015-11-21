@@ -41,6 +41,8 @@ end
 get '/photos/:id/?' do |id|
   begin
     @photo = Photo.find(id)
+    @user = User.find_by(id: @photo.user_id)
+    @photoroll = Photo.where(user_id:  @user.id)
     erb :'photos/show'
   rescue ActiveRecord::RecordNotFound
     redirect '/photos'

@@ -4,25 +4,29 @@
 
 
 <% if @current_user %>
-<% if @photo.errors.any? %>
-  <div>
-    <h3 class="text-primary">Some issues with your upload, please fix them:</h3>
-    <ul><h4>
-      <% @photo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul></h4>
-  </div>
-<% end %>
-<% end %>
-  <form action="/photos/:id/upload" method="post" 
-  enctype="multipart/form-data">
+  <% if @photo.errors.any? %>
+    <div>
+      <h3 class="text-primary">Some issues with your upload, please fix them:</h3>
+      <ul>
+        <h4>
+        <% @photo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </h4>
+      </ul>
+    </div>
+  <% end %>
+  <form action="/photos/:id/upload" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label class="text-primary">Picture:</label>
-      <input class="form-control" type="file" name="upload"><br>
+      <input class="form-control" type="file" name="upload">
+    </div>
+    <div class="form-group">
       <label class="text-primary">Caption :</label>
       <input class="form-control" type="text" name="caption"><br>
-          <div class="form-group">
+    </div>
+    <div class="form-group">
       <input class="btn btn-primary" type="submit" value="Share the SHAAAAME !!!">
     </div>
-    </form>
+  </form>
+<% end %>
