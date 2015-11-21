@@ -1,9 +1,7 @@
-<h1>Sign Up Time</h1>
-
 <% if @user.errors.any? %>
   <div>
-    <strong>Some issues with your username and/or password:</strong>
-    <ul>
+    <h3 class="text-primary">Some issues with your username and/or password:</h3>
+    <ul class ="text-primary">
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -11,18 +9,20 @@
   </div>
 <% end %>
 
-<form action="/signup" method="post">
-  <div>
-    <label>Username:</label>
-    <input name="user[username]" value="<%= @user.username %>" />
+<form action="/signup" method="post" class="form-horizontal">
+  <div class="form-group">
+    <label class="text-primary">Username:</label>
+    <input name="user[username]" value="<%= @user.username %>" class="form-control"/>
   </div>
-  <div>
-    <label>Password:</label>
-    <input type="password" name="user[password]" />
+  <div class="form-group">
+    <label class="text-primary">Password:</label>
+    <input type="password" name="user[password]" class="form-control"/>
   </div>
-  <div>
-    <label>Repeat Password:</label>
-    <input type="password" name="user[password_confirmation]" />
+  <div class="form-group">
+    <label class="text-primary">Repeat Password:</label>
+    <input type="password" name="user[password_confirmation]" class="form-control"/>
   </div>
-    <button>Sign Up</button>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Sign Up">
+  </div>
 </form>

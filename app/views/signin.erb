@@ -1,22 +1,22 @@
-<h1>Sign In Time</h1>
-
 <% if @current_user %>
   <div>
     <p>Logged in user: <%= @current_user.username %></p>
   </div>
 <% else %>
   <% if @error %>
-    <p><%= @error %></p>
+    <h3 class="text-primary"><%= @error %></h3>
   <% end %>
-  <form method="POST" action="/signin">
-    <div>
-      <label>Username:</label>
-      <input type="text" name="user[username]" value="<%= @signin_name %>" />
+  <form method="post" action="/signin" class="form-horizontal">
+    <div class="form-group">
+      <label class="text-primary">Username:</label>
+      <input type="text" name="user[username]" value="<%= @signin_name %>" class="form-control"/>
     </div>
-    <div>
-      <label>Password:</label>
-      <input type="password" name="user[password]" />
+    <div class="form-group">
+      <label class="text-primary">Password:</label>
+      <input type="password" name="user[password]" class="form-control"/>
     </div>
-    <button>Sign In</button>
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" value="Sign Up">
+    </div>
   </form>
 <% end %>
