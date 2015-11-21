@@ -8,9 +8,7 @@ post '/photos/:id/votes' do |id|
 end
 
 delete '/photos/:id/votes' do |id|
-  photo = Photo.find(id)
-  # binding.pry
-  vote = photo.votes.where(user_id: @current_user.id).where(context: params[:choice])
+  vote = Photo.find(id).votes.where(user_id: @current_user.id).where(context: params[:choice]).first
   vote.destroy
   redirect back
 end

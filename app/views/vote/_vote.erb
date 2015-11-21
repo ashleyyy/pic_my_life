@@ -32,7 +32,6 @@
             <%= photo.votes.where(context: "funny").count %>
           </span>
       </form>
-      <br />
 
     <% end %>
 
@@ -53,13 +52,18 @@
 
     <% else %>
 
-      <span class="voted"> 
-        &#128530;
-      </span>
-
-      <span class="meme-font voted">
-        <%= photo.votes.where(context: "shameful").count %>
-      </span> 
+      <form action="/photos/<%= photo.id %>/votes" method="POST">
+        <input type="hidden" name="choice" value="shameful">
+        <input type="hidden" name="_method" value="DELETE">
+          <button class ="ghost-btn">
+            <span class="voted">
+              &#128530;
+            </span>
+          </button>
+          <span class="meme-font voted">
+            <%= photo.votes.where(context: "shameful").count %>
+          </span>
+      </form>
 
     <% end %>
 
