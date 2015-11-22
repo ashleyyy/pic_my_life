@@ -31,7 +31,7 @@ end
 
 # Photos index page
 get '/photos' do
-  @photos = Photo.order(created_at: :desc)
+  @photos = Photo.includes(:votes).order(created_at: :desc)
   erb :'photos/index'
 end
 
