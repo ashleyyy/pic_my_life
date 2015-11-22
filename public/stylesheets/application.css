@@ -16,6 +16,7 @@ body {
 .nav-container {
   padding: 20px 0;
 }
+
 /* ---- Center Nav Logo for larger screens ---- */
 @media (min-width: 700px) {
   .nav-logo {
