@@ -13,6 +13,25 @@ body {
   font-family: sans-serif;
 }
 
+.nav-container {
+  padding: 20px 0;
+}
+/* ---- Center Nav Logo for larger screens ---- */
+@media (min-width: 700px) {
+  .nav-logo {
+  position: relative;
+  left: 25%;
+  }
+
+  .nav-logo img {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+}
+
 /* ---- isotope ---- */
 
 .masonry-grid {

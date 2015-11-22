@@ -1,6 +1,6 @@
 <% if @current_user %>
 
-  <div>
+  <div class="nav-container">
     <ul class="nav nav-pills">
       <%= erb :'navbar/_signedin', locals: { current_user: @current_user } %>
       <%= erb :'/navbar/_add_photo' %> 
@@ -12,7 +12,7 @@
 
 <% else %> 
 
-  <div>
+  <div class="nav-container">
     <ul class="nav nav-pills">
       <%= erb :'navbar/_login' %>
       <%= erb :'navbar/_signup' %>
