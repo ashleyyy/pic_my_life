@@ -10,7 +10,6 @@ gem 'sinatra-activerecord'
 gem 'puma'
 gem 'tux'
 gem 'carrierwave'
-gem 'mini_magick'
 gem 'require_all'
 
 group :development, :test do

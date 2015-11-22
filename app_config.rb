@@ -6,7 +6,6 @@ require 'active_support/all'
 require 'active_record'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
-require 'mini_magick'
 
 require 'factory_girl'
 require 'faker'
