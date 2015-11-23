@@ -1,11 +1,13 @@
 <div class ="well">
   <div class="center-block bigphoto">
-    <div class ="photo-votes">
-      <%= erb :'/vote/_vote', locals: { photo: @photo } %>
-    </div>
-    <img src="<%= @photo.file %>" class="img-responsive" />
-    <div class="caption-container">
-      <p class ="photo-caption meme-font"><%= @photo.caption %></p>
+    <div class="photo">
+      <div class ="photo-votes">
+        <%= erb :'/vote/_vote', locals: { photo: @photo } %>
+      </div>
+      <img src="<%= @photo.file %>" class="img-responsive" />
+      <div class="caption-container">
+        <p class ="photo-caption meme-font"><%= @photo.caption %></p>
+      </div>
     </div>
   </div>
 </div>

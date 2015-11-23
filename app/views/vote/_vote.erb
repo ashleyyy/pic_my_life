@@ -5,7 +5,7 @@
     <form action="/photos/<%= photo.id %>/votes" method="POST">
       <input type="hidden" name="choice" value="funny">
         <button class ="ghost-btn">
-          <span class="vote vote-icon">
+          <span class="vote-icon">
             &#128518;
           </span>
         </button>
@@ -36,7 +36,7 @@
     <form action="/photos/<%= photo.id %>/votes" method="POST">
       <input type ="hidden" name="choice" value ="shameful">
         <button class ="ghost-btn">
-          <span class="vote vote-icon">
+          <span class="vote-icon">
             &#128563;
           </button>
         </span>
@@ -51,7 +51,6 @@
     <form action="/photos/<%= photo.id %>/votes" method="POST">
       <input type="hidden" name="choice" value="shameful">
       <input type="hidden" name="_method" value="DELETE">
-        <h3>
         <button class ="ghost-btn">
           <span class="voted vote-icon">
             &#128563;
@@ -60,7 +59,6 @@
         <span class="meme-font voted">
           <%= photo.votes.where(context: "shameful").count %>
         </span>
-        </h3>
     </form>
 
   <% end %>

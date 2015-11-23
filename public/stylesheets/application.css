@@ -157,6 +157,26 @@ a {
   font-size: 30px;
   margin-right: 10px;
 }
+/*--------- Individual Photo-----------*/
+
+.meme-font {
+  font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', 'sans serif';
+  font-size: 30px;
+ /* font-variant: normal;
+  font-weight: 500;
+  line-height: 15.4px;*/
+  color: #FFFFFF;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-transform: uppercase;
+}
+
+.vote:hover {
+  text-shadow: 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF;
+}
+
+.voted {
+  text-shadow: 0 0 0.5em #5d12ed, 0 0 0.5em #5d12ed, 0 0 0.5em #5d12ed, 0 0 0.5em #FFF, 0 0 0.5em #FFF;
+}
 
 /*-------- Individual photo page ----- */
 .well {
@@ -164,6 +184,7 @@ a {
 }
 
 .bigphoto {
+  background-color: #e0e0eb;
   padding: 20px 0 0 0;
   text-align: center;
   border: 1px solid #e3e3e3;
@@ -204,27 +225,8 @@ a {
 }
 .photo-caption {
   margin: 20px 0;
-}
-
-/*--------- Individual Photo-----------*/
-
-.meme-font {
-  font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', 'sans serif';
-  font-size: 30px;
- /* font-variant: normal;
-  font-weight: 500;
-  line-height: 15.4px;*/
-  color: #FFFFFF;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  text-transform: uppercase;
-}
-
-.vote:hover {
-  text-shadow: 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF, 0 0 0.5em #FFF;
-}
-
-.voted {
-  text-shadow: 0 0 0.5em #5d12ed, 0 0 0.5em #5d12ed, 0 0 0.5em #5d12ed, 0 0 0.5em #FFF, 0 0 0.5em #FFF;
+  color: #350a87;
+  text-shadow: none;
 }
 
 footer {
