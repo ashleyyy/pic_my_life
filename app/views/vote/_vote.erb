@@ -1,52 +1,69 @@
 <% if @current_user %>
 
   <form action="/photos/<%= photo.id %>/votes" method="POST">
-    <input type="hidden" name="choice" value="funny">
+  <input type="hidden" name="choice" value="funny">
 
   <% if can_vote?(photo, "funny") %>
 
     <button class ="ghost-btn">
       <span class="vote vote-icon">
+        &#128518;
+      </span>
+    </button>
+    
+    <span class="meme-font vote">
+      <%= photo.votes.where(context: "funny").count %>
+    </span>
 
   <% else %>
 
     <input type="hidden" name="_method" value="DELETE">
     <button class ="ghost-btn">
       <span class="voted vote-icon">
-
-  <% end %>
-
-        &#128518;
+       &#128518;
       </span>
     </button>
     
     <span class="meme-font voted">
       <%= photo.votes.where(context: "funny").count %>
     </span>
+
+  <% end %>
+
   </form>
 
+<!--shameful vote buttons -->
+
   <form action="/photos/<%= photo.id %>/votes" method="POST">
-    <input type ="hidden" name="choice" value ="shameful">
+  <input type="hidden" name="choice" value="shameful">
 
   <% if can_vote?(photo, "shameful") %>
 
     <button class ="ghost-btn">
-    <span class="vote vote-icon">    
+      <span class="vote vote-icon">
+        &#128563;
+      </span>
+    </button>
+    
+    <span class="meme-font vote">
+      <%= photo.votes.where(context: "shameful").count %>
+    </span>
 
   <% else %>
 
     <input type="hidden" name="_method" value="DELETE">
     <button class ="ghost-btn">
-    <span class="voted vote-icon">
+      <span class="voted vote-icon">
+       &#128563;
+      </span>
+    </button>
+    
+    <span class="meme-font voted">
+      <%= photo.votes.where(context: "shameful").count %>
+    </span>
 
   <% end %>
 
-    &#128563;
-    </span>
-    </button>
-    <span class="meme-font">
-      <%= photo.votes.where(context: "shameful").count %>
-    </span>
   </form>
 
 <% else %>
