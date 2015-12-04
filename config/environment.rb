@@ -10,7 +10,7 @@ require 'sinatra/contrib/all' # Requires cookies, among other things
 
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
-require 'pry'
+require 'pry' if development?
 require 'require_all'
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

@@ -22,3 +22,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rack-test'
 end
+
+group :production do
+  gem 'pg'
+end
