@@ -1,10 +1,8 @@
-Sinatra
+Pic My Life
 =============
 
-Brought to you by Lighthouse Labs
+Lighthouse Labs Web Development Immersive - Midterm Group Project
 
-## Getting Started
+Pic My Life is a reimagined version of the popular FML. You can upload  your own embarassing photos and vote on photos you think are funny/shameful.
 
-1. `bundle install`
-2. `shotgun -p 3000 -o 0.0.0.0`
-3. Visit `http://localhost:3000/` in your browser
+This app was built with Ruby and Sinatra, and styled with Bootstrap.
