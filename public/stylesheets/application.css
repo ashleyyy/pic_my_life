@@ -17,11 +17,15 @@ body {
   padding: 20px 0;
 }
 
+.nav {
+  font-size: 16px;
+}
+
 /* ---- Center Nav Logo for larger screens ---- */
 @media (min-width: 700px) {
   .nav-logo {
   position: relative;
-  left: 25%;
+
   }
 
   .nav-logo img {
@@ -232,4 +236,5 @@ a {
 footer {
   padding-top: 50px;
   width: 100%;
+  font-size: 16px;
 }

@@ -2,9 +2,9 @@
 
   <div class="nav-container">
     <ul class="nav nav-pills">
+      <%= erb :'navbar/_main' %>
       <%= erb :'navbar/_signedin', locals: { current_user: @current_user } %>
       <%= erb :'/navbar/_add_photo' %> 
-      <%= erb :'navbar/_main' %>
       <%= erb :'navbar/_sort_by' %>
       <%= erb :'navbar/_random' %>
     </ul>
@@ -14,9 +14,9 @@
 
   <div class="nav-container">
     <ul class="nav nav-pills">
+      <%= erb :'navbar/_main' %>
       <%= erb :'navbar/_login' %>
       <%= erb :'navbar/_signup' %>
-      <%= erb :'navbar/_main' %>
       <%= erb :'navbar/_sort_by' %>
       <%= erb :'navbar/_random' %>
     </ul>
